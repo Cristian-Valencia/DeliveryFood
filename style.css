@@ -1,0 +1,180 @@
+/* Font CSS */
+
+*{
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+/* HomeContainer DIV CSS */
+
+.homeContainer{
+    background-image: url(img/background-image.jpeg);
+    height: 809px;
+    background-size: cover;
+    position: relative;
+}
+
+/* menuContainer CSS */
+
+.menuContainer{
+    background-color: rgba(0, 0, 0, 0.815);
+    height: 150px;
+    box-sizing: border-box;
+}
+
+/* logoContainer CSS */
+
+.logoContainer{
+    padding: 40px;
+    display: inline-block;
+}
+
+.logo{
+    background-image: url(img/logo-bianco.png);
+    background-size: cover;
+    width: 105px;
+    height: 78px;
+    display: inline-block;
+}
+
+.logo:hover{
+    opacity: 0.8;
+    transition: all 0.7s;
+}
+
+/* listContainer CSS */
+
+.listContainer{
+    display: inline-block;
+}
+
+.listContainer li{
+    display: table-cell;
+    padding-left: 175px;
+    padding-bottom: 25px;
+}
+
+.listContainer a{
+    color: white;
+    font-size: 35px;
+}
+
+.listContainer a:hover{
+    border-bottom: white 1px solid;
+    font-size: 37px;
+    transition: all 0.7s;
+}
+
+/* socialContainer CSS */
+
+.socialContainer{
+    display: inline-block;
+    margin-left: 140px;
+}
+
+.socialContainer a{
+    padding-bottom: 10px;
+    margin-left: 10px;
+}
+
+.socialContainer a:hover{
+    opacity: 0.7;
+    transition: all 0.7s;
+}
+
+.instagram{
+    background-image: url(img/instagramLogo.png);
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.facebook{
+    background-image: url(img/facebookLogo.png);
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.twitter{
+    background-image: url(img/twitterLogo.png);
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.youtube{
+    background-image: url(img/youtubeLogo.png);
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+/* subMenu Container */
+
+.subMenuContainer{
+    background-color: white;
+}
+
+.submenuContainer a{
+    color: black;
+}
+
+.pizzaImage{
+    background-image: url(img/pizza.png);
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+/* FORM CSS */
+
+.formContainer{
+    position: absolute;
+    top: 60%;  
+    left: 52%;
+
+    transform: translate(-50%, -50%);
+}
+
+.formContainer input{
+    margin: 10px;
+    padding: 20px;
+    font-size: 25px;
+    border: none;
+    box-shadow: 10px 12px 0px 0px rgba(0,0,0,0.13);
+}
+
+.address{
+    width: 495px;
+}
+
+/* Button CSS */
+
+.search{
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 30px;
+    width: 546px;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.342);
+    margin-top: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.search:hover{
+    background-color: black;
+    color: white;
+    transition: all 0.7s;
+}
