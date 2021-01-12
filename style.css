@@ -12,6 +12,7 @@
     background-size: cover;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    overflow: hidden;
 }
 
 /* menuContainer CSS */
@@ -48,14 +49,20 @@
 /* listContainer CSS */
 
 .listContainer{
-    display: inline-block;
+    display: none;
     position: absolute;
     width: 100%;
     top: 16%;
-    left: 0%;
+    right: -100%;
     text-align: right;
     background-color: white;
+    animation: goToRight 0.5s;
+}
 
+.showListContainer{
+    animation: goToLeft 0.5s ; 
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
 }
 
 .listContainer > ul{
@@ -86,20 +93,20 @@
     width: 20px;
     height: 20px;
     position: absolute;
-    top: 40%;
+    top: 37%;
     right: 0%;
 }
 
 .linkHome::after{
-    background: url(img/instagramLogo.png) no-repeat;
+    background: url(img/home.png) no-repeat;
 }
 
 .linkRist::after{
-    background: url(img/twitterLogo.png) no-repeat;
+    background: url(img/restaurant.png) no-repeat;
 }
 
 .linkLog::after{
-    background: url(img/youtubeLogo.png) no-repeat;
+    background: url(img/login.png) no-repeat;
 }
 
 
@@ -245,6 +252,23 @@
     margin: 5px 0;
 }
 
+.oneX{
+    animation: xOne 0.5s;
+    position: absolute;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+}
+
+.twoX{
+    animation: xTwo 0.5s;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+}
+
+.threeX{
+    display: none;
+}
+
 
 .headerText{
     font-size: 55px;
@@ -252,3 +276,49 @@
     margin-top: 195px;
     color: white;
 }
+
+/* delete and show */
+
+@keyframes goToLeft {
+    0% {
+        right: -100%;
+    }
+
+    100% {
+        right: 0%;
+    }
+  }
+
+
+  @keyframes goToRight {
+    0% {
+        right: 0%;
+    }
+
+    100% {
+        right: -100%;
+    }
+  }
+
+
+  @keyframes xOne {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(135deg)
+    }
+  }
+
+  @keyframes xTwo {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(45deg)
+    }
+  }
+
+
