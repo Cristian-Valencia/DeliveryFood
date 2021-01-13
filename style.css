@@ -2,6 +2,7 @@
 
 *{
     font-family: 'Darker Grotesque', sans-serif;
+    box-sizing: border-box;
 }
 
 /* HomeContainer DIV CSS */
@@ -59,6 +60,39 @@
     animation: goToRight 0.5s;
 }
 
+@media screen and (min-width: 1028px) {
+    .listContainer{
+        display: none;
+    }
+  }
+
+.listContainerDesktop{
+    display: none;
+}
+
+@media screen and (min-width: 1028px) {
+    .listContainerDesktop{
+        display: block;
+    }
+
+    .listContainerDesktop li{
+        display: inline;
+        font-size: 35px;
+        margin-left: 70px;
+    }
+
+    .listContainerDesktop li a{
+        color: white;
+        transition: border-bottom 0.7s, opacity 0.7s;
+    }
+
+    .listContainerDesktop li a:hover{
+        border-bottom: solid white 1px;
+        opacity: 0.5;
+    }
+  }
+
+
 .showListContainer{
     animation: goToLeft 0.5s ; 
     animation-timing-function:linear;
@@ -109,80 +143,6 @@
     background: url(img/login.png) no-repeat;
 }
 
-
-
-/* socialContainer CSS */
-
-.socialContainer{
-    display: inline-block;
-    margin-left: 140px;
-}
-
-.socialContainer a{
-    padding-bottom: 10px;
-    margin-left: 10px;
-}
-
-.socialContainer a:hover{
-    opacity: 0.7;
-    transition: all 0.7s;
-}
-
-.instagram{
-    background-image: url(img/instagramLogo.png);
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    background-repeat: no-repeat;
-}
-
-.facebook{
-    background-image: url(img/facebookLogo.png);
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    background-repeat: no-repeat;
-}
-
-.twitter{
-    background-image: url(img/twitterLogo.png);
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    background-repeat: no-repeat;
-}
-
-.youtube{
-    background-image: url(img/youtubeLogo.png);
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    background-repeat: no-repeat;
-}
-
-/* subMenu Container */
-
-.subMenuContainer{
-    background-color: white;
-}
-
-.submenuContainer a{
-    color: black;
-}
-
-.pizzaImage{
-    background-image: url(img/pizza.png);
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    background-repeat: no-repeat;
-}
-
 /* FORM CSS */
 
 .formContainer{
@@ -196,11 +156,18 @@
     border-radius: 5px;
 }
 
+@media screen and (min-width: 1028px) {
+    .formContainer{
+        top: 62%;
+        left: 30%;
+    }
+  }
+
 
 .formContainer input{
     margin: 8px;
     padding: 20px;
-    font-size: 25px;
+    font-size: 24px;
     border: none;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
@@ -245,11 +212,25 @@
     flex-direction: column;
 }
 
+@media screen and (min-width: 1028px) {
+    .burgerMenuContainer{
+        display: none;
+    }
+  }
+
 .one, .two, .three{
     height: 5px;
     width: 45px;
     background-color: white;
     margin: 5px 0;
+}
+
+.one{
+    animation: one 0.5s ;
+}
+
+.two{
+    animation: two 0.5s;
 }
 
 .oneX{
@@ -271,10 +252,74 @@
 
 
 .headerText{
-    font-size: 55px;
+    font-size: 80px;
     text-align: center;
     margin-top: 195px;
     color: white;
+    animation: textUp 0.5s;
+}
+
+.headerTextDown{
+    animation: textDown 0.5s;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+}
+
+@media screen and (min-width: 1028px) {
+    .headerText{
+    font-size: 55px;
+    text-align: center;
+    margin-top: 110px;
+    color: white;
+    }
+  }
+
+
+
+
+/* Carousel CSS */
+
+.carouselContainer{
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.carouselContainer img{
+    width: 100%;
+    position: absolute;
+    left:100%;
+    top:50%;
+    transform: translateY(-50%);
+    transition: left 1s;
+    z-index: 1
+}
+
+.carouselContainer .visible{
+    left:0;
+    z-index: 2
+}
+
+.carouselContainer .fadeOut{
+    left:-100%;
+    z-index: 2
+}
+
+.carouselSectionContainer{
+    margin-top: 300px;
+}
+
+@media screen and (min-width: 1028px) {
+    .carouselSectionContainer{
+    margin-top: 100px;
+    }
+  }
+
+.carouselSectionContainer h2{
+    font-size: 70px;
+    padding-left: 20px;
+    padding-bottom: 20px;
 }
 
 /* delete and show */
@@ -321,4 +366,47 @@
     }
   }
 
+  @keyframes one {
+    0% {
+        transform: rotate(135deg)
+    }
+
+    100% {
+        transform: rotate(0deg)
+    }
+  }
+
+  @keyframes two {
+    0% {
+        transform: rotate(45deg)
+    }
+
+    100% {
+        transform: rotate(0deg)
+    }
+  }
+
+  @keyframes textUp {
+    0% {
+        margin-top: 290px;
+    }
+
+    100% {
+        margin-top: 195px;
+    }
+  }
+
+  @keyframes textDown {
+    0% {
+        margin-top: 195px;
+    }
+
+    100% {
+        margin-top: 290px;
+    }
+  }
+
+
+
+  
 
