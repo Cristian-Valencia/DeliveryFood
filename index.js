@@ -30,23 +30,46 @@ window.onload=function()
                 .classList
                 .remove("fadeOut");            
         }
-    
+
+        const containerMobile = document.querySelector(".carouselContainer");
+        const containerDesktop = document.querySelector(".carouselContainerDesktop");
         
         const imgVisibile=document
             .querySelector(".carouselContainer .visible")
+
+        const imgDeskVisible = document.querySelector(".carouselContainerDesktop .visible")
     
       //  console.log(imgVisibile)
       //  console.log(imgVisibile.nextElementSibling)
+
+        if(window.getComputedStyle(containerMobile, null).display == block){
+            imgVisibile.classList.remove("visible");
+            imgVisibile.classList.add("fadeOut");
+        } else{
+            imgVisibile.classList.remove("visible");
+            imgVisibile.classList.remove("fadeOut");
+            document.querySelector(".carouselContainer img:nth-of-type(1)").classList.add("visible");
+        }
+
+        if(window.getComputedStyle(containerDesktop, null).display == block){
+            imgDeskVisible.classList.remove("visible");
+            imgDeskVisible.classList.add("fadeOut");
+        } else{
+            imgDeskVisible.classList.remove("visible");
+            imgDeskVisible.classList.remove("fadeOut");
+            document.querySelector(".carouselContainerDesktop div:nth-of-type(1)").classList.add("visible");
+        }
         
         
-        imgVisibile.classList.remove("visible");
-        imgVisibile.classList.add("fadeOut");
         
-        if(imgVisibile.nextElementSibling!=null)
+        
+        if(imgVisibile.nextElementSibling!=null || imgDeskVisible.nextElementSibling!=null )
         {
             imgVisibile
                 .nextElementSibling
-                .classList.add("visible");        
+                .classList.add("visible");
+                
+            imgDeskVisible.nextElementSibling.classList.add("visible")
         }
         else{
             //var genitore=imgVisibile.parentElement;
@@ -55,14 +78,30 @@ window.onload=function()
             document
                 .querySelector(".carouselContainer img:nth-of-type(1)")
                 .classList.add("visible")
+
+            document.querySelector(".carouselContainerDesktop div:nth-of-type(1)").classList.add("visible")
             
         }
+
+        
         
     }
 
     setInterval(slider,3000);
 
-    
+    //questo è il modo per controllare se un tag html ha una classe
+
+    // const test = document.querySelector(".carouselContainerDesktop");
+
+    // if (test.classList.contains('carouselContainerDesktop')) {
+    //     console.log("c'è")
+    // } else{
+    //     console.log("non c'è")
+    // }
+
+
+
+    //console.log(window.getComputedStyle(test, null).display) "questo è il modo per capire come controllare il display di un tag html"
 
 
 };

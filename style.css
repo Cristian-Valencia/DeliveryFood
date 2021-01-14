@@ -280,6 +280,7 @@
 /* Carousel CSS */
 
 .carouselContainer{
+    display: block;
     overflow: hidden;
     width: 100%;
     height: 500px;
@@ -311,8 +312,48 @@
 }
 
 @media screen and (min-width: 1028px) {
-    .carouselSectionContainer{
-    margin-top: 100px;
+    .carouselContainer{
+        display: none;
+    }
+  }
+
+  .carouselContainerDesktop{
+      display: none;
+  }
+
+  @media screen and (min-width: 1028px) {
+    .carouselContainerDesktop{
+        display: block;
+        height: 300px;
+        width: 100%;
+        position: relative;
+    }
+
+    .carouselContainerDesktop div{
+        position: absolute;
+        width: 100%;
+        top: 0%;
+        left: 100%;
+    }
+
+    .carouselContainerDesktop .visible{
+        left:0;
+        z-index: 2
+    }
+
+    .carouselContainerDesktop .fadeOut{
+        left:-100%;
+        z-index: 2
+    }
+
+    .sliderDesktopImage{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .carouselContainerDesktop img{
+        width: 30%;
+        height: 300px;
     }
   }
 
