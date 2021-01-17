@@ -31,45 +31,25 @@ window.onload=function()
                 .remove("fadeOut");            
         }
 
-        const containerMobile = document.querySelector(".carouselContainer");
-        const containerDesktop = document.querySelector(".carouselContainerDesktop");
+        
         
         const imgVisibile=document
             .querySelector(".carouselContainer .visible")
-
-        const imgDeskVisible = document.querySelector(".carouselContainerDesktop .visible")
     
       //  console.log(imgVisibile)
       //  console.log(imgVisibile.nextElementSibling)
 
-        if(window.getComputedStyle(containerMobile, null).display == block){
             imgVisibile.classList.remove("visible");
             imgVisibile.classList.add("fadeOut");
-        } else{
-            imgVisibile.classList.remove("visible");
-            imgVisibile.classList.remove("fadeOut");
-            document.querySelector(".carouselContainer img:nth-of-type(1)").classList.add("visible");
-        }
-
-        if(window.getComputedStyle(containerDesktop, null).display == block){
-            imgDeskVisible.classList.remove("visible");
-            imgDeskVisible.classList.add("fadeOut");
-        } else{
-            imgDeskVisible.classList.remove("visible");
-            imgDeskVisible.classList.remove("fadeOut");
-            document.querySelector(".carouselContainerDesktop div:nth-of-type(1)").classList.add("visible");
-        }
+    
         
         
         
-        
-        if(imgVisibile.nextElementSibling!=null || imgDeskVisible.nextElementSibling!=null )
+        if(imgVisibile.nextElementSibling!=null)
         {
             imgVisibile
                 .nextElementSibling
                 .classList.add("visible");
-                
-            imgDeskVisible.nextElementSibling.classList.add("visible")
         }
         else{
             //var genitore=imgVisibile.parentElement;
@@ -78,8 +58,6 @@ window.onload=function()
             document
                 .querySelector(".carouselContainer img:nth-of-type(1)")
                 .classList.add("visible")
-
-            document.querySelector(".carouselContainerDesktop div:nth-of-type(1)").classList.add("visible")
             
         }
 
@@ -87,21 +65,70 @@ window.onload=function()
         
     }
 
-    setInterval(slider,3000);
+    const sliderDesktop = () => {
+    
+        //console.log(document.querySelector(".spostati"))
+        
+        if(document.querySelector(".fadeOutDesktop")!=null)
+        {
+            document
+                .querySelector(".fadeOutDesktop")
+                .classList
+                .remove("fadeOutDesktop");            
+        }
 
-    //questo è il modo per controllare se un tag html ha una classe
+        
+        
+        const imgVisibileDesktop=document
+            .querySelector(".carouselContainerDesktop .visibleDesktop")
+    
+      //  console.log(imgVisibile)
+      //  console.log(imgVisibile.nextElementSibling)
 
-    // const test = document.querySelector(".carouselContainerDesktop");
+            imgVisibileDesktop.classList.remove("visibleDesktop");
+            imgVisibileDesktop.classList.add("fadeOutDesktop");
+    
+        
+        
+        
+        if(imgVisibileDesktop.nextElementSibling!=null)
+        {
+            imgVisibileDesktop
+                .nextElementSibling
+                .classList.add("visibleDesktop");
+        }
+        else{
+            //var genitore=imgVisibile.parentElement;
+            //genitore.children[0].classList.add("visibile");
+            
+            document
+                .querySelector(".carouselContainerDesktop div:nth-of-type(1)")
+                .classList.add("visibleDesktop")
+            
+        }
 
-    // if (test.classList.contains('carouselContainerDesktop')) {
-    //     console.log("c'è")
-    // } else{
-    //     console.log("non c'è")
-    // }
+        
+        
+    }
 
+    const containerMobile = document.querySelector(".carouselContainer");
+    const containerDesktop = document.querySelector(".carouselContainerDesktop");
+    const containerMobileD = window.getComputedStyle(containerMobile, null).display;
+    const containerDesktopD = window.getComputedStyle(containerDesktop, null).display;
+    const sliderMobile = setInterval(slider,3000);
+    const sliderForDesktop = setInterval(sliderDesktop, 3000);
 
+    if(containerMobileD == "block"){
+        sliderMobile();
+    } else{
+        clearInterval(sliderMobile);
+    }
 
-    //console.log(window.getComputedStyle(test, null).display) "questo è il modo per capire come controllare il display di un tag html"
+    if(containerDesktopD == "block"){
+        sliderForDesktop();
+    } else{
+        clearInterval(sliderForDesktop);
+    }
 
 
 };

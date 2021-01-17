@@ -5,6 +5,16 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'social';
+    
+    src: url('font/social.eot'),
+         url('font/social.woff'),
+         url('font/social.woff'),
+         url('font/social.ttf'),
+         url('font/social.svg');
+  }
+
 /* HomeContainer DIV CSS */
 
 .homeContainer{
@@ -158,7 +168,7 @@
 
 @media screen and (min-width: 1028px) {
     .formContainer{
-        top: 62%;
+        top: 70%;
         left: 30%;
     }
   }
@@ -269,7 +279,7 @@
     .headerText{
     font-size: 55px;
     text-align: center;
-    margin-top: 110px;
+    margin-top: 70px;
     color: white;
     }
   }
@@ -311,6 +321,13 @@
     margin-top: 300px;
 }
 
+.carouselSectionContainer .white{
+    width: 100%;
+    height: 500px;
+    z-index: 1;
+    background-color: white
+}
+
 @media screen and (min-width: 1028px) {
     .carouselContainer{
         display: none;
@@ -327,6 +344,7 @@
         height: 300px;
         width: 100%;
         position: relative;
+        overflow: hidden;
     }
 
     .carouselContainerDesktop div{
@@ -334,14 +352,15 @@
         width: 100%;
         top: 0%;
         left: 100%;
+        transition: left 1s;
     }
 
-    .carouselContainerDesktop .visible{
+    .carouselContainerDesktop .visibleDesktop{
         left:0;
-        z-index: 2
+        z-index: 2;
     }
 
-    .carouselContainerDesktop .fadeOut{
+    .carouselContainerDesktop .fadeOutDesktop{
         left:-100%;
         z-index: 2
     }
@@ -361,6 +380,95 @@
     font-size: 70px;
     padding-left: 20px;
     padding-bottom: 20px;
+}
+
+/* AppContainer  */
+
+.appContainer{
+    width: 100%;
+    height: 500px;
+    margin: 150px 0;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobileApp{
+    width: 91%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+}
+
+.mobileApp .mobileImg{
+    width:31%;
+}
+
+@media screen and (min-width: 1028px) {
+    .mobileApp .mobileImg{
+        display: none;
+    }
+  }
+  
+.mobileApp .desktopImg{
+    display: none;
+}
+
+@media screen and (min-width: 1028px) {
+    .mobileApp .desktopImg{
+        width: 47%;
+        display: inline-block;
+    }
+  }
+
+.appStore{
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 45%;
+}
+
+.appStore img{
+    width:100%;
+}
+
+
+
+
+/* Footer CSS */
+
+.footerContainer{
+    width: 100%;
+    height: 500px;
+    margin-top: 100px;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(73,73,73,0.7847514005602241) 48%, rgba(255,255,255,0) 100%);
+}
+
+.footerContainer h2{
+    font-size: 73px;
+    margin: 30px;
+}
+
+.social li{
+    font-family: social;
+    float: left;
+    margin-left: .85em;  
+    margin-bottom: 0.5em;
+    background-color: white;
+    width: 2em;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2em;
+    font-size: 500%;
+    margin-top: .5em;
+}
+
+.paymentsContainer img{
+    width: 100%;
 }
 
 /* delete and show */
