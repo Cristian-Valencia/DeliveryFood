@@ -118,17 +118,17 @@ window.onload=function()
     const sliderMobile = setInterval(slider,3000);
     const sliderForDesktop = setInterval(sliderDesktop, 3000);
 
-    if(containerMobileD == "block"){
-        sliderMobile();
-    } else{
-        clearInterval(sliderMobile);
-    }
+    // if(containerMobileD == "block"){
+    //     sliderMobile();
+    // } else{
+    //     clearInterval(sliderMobile);
+    // }
 
-    if(containerDesktopD == "block"){
-        sliderForDesktop();
-    } else{
-        clearInterval(sliderForDesktop);
-    }
+    // if(containerDesktopD == "block"){
+    //     sliderForDesktop();
+    // } else{
+    //     clearInterval(sliderForDesktop);
+    // }
 
 
 };
