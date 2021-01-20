@@ -118,17 +118,46 @@ window.onload=function()
     const sliderMobile = setInterval(slider,3000);
     const sliderForDesktop = setInterval(sliderDesktop, 3000);
 
-    // if(containerMobileD == "block"){
-    //     sliderMobile();
-    // } else{
-    //     clearInterval(sliderMobile);
-    // }
+    if(containerMobileD == "block"){
+        clearInterval(sliderForDesktop);
+    } else{
+        setInterval(slider,3000)
+    }
 
-    // if(containerDesktopD == "block"){
-    //     sliderForDesktop();
-    // } else{
-    //     clearInterval(sliderForDesktop);
-    // }
+    if(containerDesktopD == "block"){
+        clearInterval(sliderMobile);
+    } else{
+        setInterval(sliderDesktop,3000)
+    }
+
+    const loginBtn = document.querySelector(".linkLog");
+    const loginBtnDesk = document.querySelector(".linkLogDesktop");
+    const space = document.querySelector(".blankSpace");
+    const accedi = document.querySelector(".accediContainer");
+
+    loginBtn.addEventListener("click", () =>{
+
+        accedi.classList.toggle("accediContainerShow");
+
+        space.classList.toggle("blankSpaceShow");
+
+    });
+
+    loginBtnDesk.addEventListener("click", () =>{
+
+        accedi.classList.toggle("accediContainerShow");
+
+        space.classList.toggle("blankSpaceShow");
+
+    })
+
+    space.addEventListener("click", () =>{
+
+        accedi.classList.remove("accediContainerShow");
+
+        space.classList.remove("blankSpaceShow");
+
+    })
 
 
 };
