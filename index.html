@@ -90,21 +90,55 @@
                     </li>
 
                     <li>
-                        <h3>Prima volta sul nostro sito? <a href="#">Crea un account</a></h3>
+                        <h3>Prima volta sul nostro sito? <a href="#" class="registrationLink">Crea un account</a></h3>
                     </li>
 
                     <li>
                         <h3>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla<a href="#">Privacy</a>e sui <a href="#">Cookie</a>.</h3>
                     </li>
 
-                    <!-- <li>
-                        <input type="checkbox">
-                        <label>Creando un account accetti Termini e le condizioni d'uso. Leggi la nostra informativa sulla Privacy e sui Cookie.</label>
-                    </li> -->
+                    <li>
+                        <div class="test"></div>
+                    </li>
                     
                 </ul>
             </form>
     
+        </div>
+
+        <div class="registrazioneContainer">
+            <form class="registrazione">
+                <ul>
+
+                    <li>
+                        <input type="username" name="user" placeholder="Inserire Username" maxlength="90" autocomplete="none" data-min="20" class="userName">
+                        <p class="userNameError">Questo campo è obbligatorio</p>
+                    </li>
+
+                    <li>
+                        <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" autocomplete="none" data-min="20" class="email">
+                        <p class="mailError">Questo campo è obbligatorio</p>
+                    </li>
+
+                    <li>
+                        <input type="password" name="password" placeholder="Password" maxlength="20" autocomplete="none" data-min="10" class="password"> 
+                    </li>
+
+                    <li>
+                        <input type="password" name="confirmPassword" placeholder="Conferma Password" maxlength="20" autocomplete="none" data-min="10" class="confirmPassword"> 
+                        <p class="registrationError">Le due password non corrispondono</p>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" class="agreedCheck">
+                        <label>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla<a href="#">Privacy</a>e sui <a href="#">Cookie</a>.</label>
+                    </li>
+
+                    <li>
+                        <button>Registrati</button>
+                    </li>
+                </ul>
+            </form>
         </div>
 
 

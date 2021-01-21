@@ -134,6 +134,22 @@ window.onload=function()
     const loginBtnDesk = document.querySelector(".linkLogDesktop");
     const space = document.querySelector(".blankSpace");
     const accedi = document.querySelector(".accediContainer");
+    const regBtn = document.querySelector(".registrationLink");
+    const registration = document.querySelector(".registrazioneContainer");
+    const mailInput = document.querySelector(".email");
+    const userNameInput = document.querySelector(".userName");
+    const passInput = document.querySelector(".password");
+    const confPassInput = document.querySelector(".confirmPassword");
+    const errorMessage = document.querySelector(".registrationError");
+    const agreedInCond = document.querySelector(".agreedCheck");
+    const user = {
+        userName: "",
+        eMail: "",
+        pass: "",
+        agreedInCondition: false
+    };
+
+
 
     loginBtn.addEventListener("click", () =>{
 
@@ -158,6 +174,76 @@ window.onload=function()
         space.classList.remove("blankSpaceShow");
 
     })
+
+    regBtn.addEventListener("click", () =>{
+
+        accedi.classList.remove("accediContainerShow");
+
+        registration.classList.add("registrazioneContainerShow");
+
+    })
+
+    // vogliamo che quando qualcuno si registra i parametri vengono salvati dentro un oggetto!
+
+    // let savedMail ="";
+
+    // mail.addEventListener("change", (event) =>{
+
+    //     savedMail = event.target.value;
+
+    //     console.log(savedMail);
+
+    //     document.querySelector(".test").innerHTML = savedMail;
+
+    // });
+
+    
+
+    userNameInput.addEventListener("change", (event) =>{
+
+        user.userName = event.target.value;
+
+        console.log(user);
+
+    });
+
+    mailInput.addEventListener("change", (event) =>{
+
+        user.eMail = event.target.value;
+
+        console.log(user);
+
+    });
+
+    passInput.addEventListener("change", (event) =>{
+
+        user.pass = event.target.value;
+
+        console.log(user);
+
+    });
+
+    confPassInput.addEventListener("change", (event) =>{
+
+        if(user.pass === event.target.value){
+            console.log("va tutto bene")
+        } else{
+            console.log("errore")
+            errorMessage.classList.add("registrationErrorShow")
+
+        }
+
+    });
+
+    agreedInCond.addEventListener("change", () =>{
+        user.agreedInCondition = !user.agreedInCondition;
+
+        console.log(user)
+    })
+
+
+   
+
 
 
 };
