@@ -111,17 +111,22 @@
                 <ul>
 
                     <li>
-                        <input type="username" name="user" placeholder="Inserire Username" maxlength="90" autocomplete="none" data-min="20" class="userName">
-                        <p class="userNameError">Questo campo è obbligatorio</p>
+                        <h2>Registrazione</h2>
                     </li>
 
                     <li>
-                        <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" autocomplete="none" data-min="20" class="email">
-                        <p class="mailError">Questo campo è obbligatorio</p>
+                        <input type="username" name="user" placeholder="Inserire Username" maxlength="90" autocomplete="none" data-min="3" class="userName">
+                        <p class="userNameError">Questo campo deve contenere almeno 3 caratteri.</p>
+                    </li>
+
+                    <li>
+                        <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" autocomplete="none" data-min="15" class="email">
+                        <p class="mailError">Questo campo deve contenere almeno 15 caratteri.</p>
                     </li>
 
                     <li>
                         <input type="password" name="password" placeholder="Password" maxlength="20" autocomplete="none" data-min="10" class="password"> 
+                        <p class="passError">Questo campo deve contenere almeno 10 caratteri.</p>
                     </li>
 
                     <li>
@@ -134,8 +139,12 @@
                         <label>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla<a href="#">Privacy</a>e sui <a href="#">Cookie</a>.</label>
                     </li>
 
+                    <li> 
+                        <button class="regBtn" disabled >Registrati</button>
+                    </li>
+
                     <li>
-                        <button>Registrati</button>
+                        <h3>Sei già registrato? <a href="#">Accedi</a></h3>
                     </li>
                 </ul>
             </form>

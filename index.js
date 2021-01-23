@@ -141,11 +141,16 @@ window.onload=function()
     const passInput = document.querySelector(".password");
     const confPassInput = document.querySelector(".confirmPassword");
     const errorMessage = document.querySelector(".registrationError");
+    const errorMessageUser = document.querySelector(".userNameError");
+    const errorMessageMail = document.querySelector(".mailError");
+    const errorMessagePass = document.querySelector(".passError");
     const agreedInCond = document.querySelector(".agreedCheck");
+    const inputRegistration = document.querySelectorAll(".registrazioneContainer input");
+    const btnReg = document.querySelector(".regBtn");
     const user = {
-        userName: "",
-        eMail: "",
-        pass: "",
+        userName: " ",
+        eMail: " ",
+        pass: " ",
         agreedInCondition: false
     };
 
@@ -172,6 +177,8 @@ window.onload=function()
         accedi.classList.remove("accediContainerShow");
 
         space.classList.remove("blankSpaceShow");
+
+        registration.classList.remove("registrazioneContainerShow");
 
     })
 
@@ -200,50 +207,76 @@ window.onload=function()
     
 
     userNameInput.addEventListener("change", (event) =>{
-
         user.userName = event.target.value;
-
-        console.log(user);
-
+        const oneLength = userNameInput.getAttribute("data-min");
+        if(user.userName.length >= oneLength ) {
+            userNameInput.classList.add("ok");
+            userNameInput.classList.remove("error");
+            errorMessageUser.classList.remove("userNameErrorShow");
+        } else{
+            userNameInput.classList.add("error");
+            userNameInput.classList.remove("ok");
+            errorMessageUser.classList.add("userNameErrorShow");
+        }
     });
 
     mailInput.addEventListener("change", (event) =>{
-
         user.eMail = event.target.value;
-
-        console.log(user);
-
+        const twoLength = mailInput.getAttribute("data-min");
+        if(user.eMail.length >= twoLength ) {
+            mailInput.classList.add("ok");
+            mailInput.classList.remove("error");
+            errorMessageMail.classList.remove("mailErrorShow");
+        } else{
+            mailInput.classList.add("error");
+            mailInput.classList.remove("ok");
+            errorMessageMail.classList.add("mailErrorShow");
+        }
     });
 
     passInput.addEventListener("change", (event) =>{
-
         user.pass = event.target.value;
-
-        console.log(user);
-
+        const threeLength = passInput.getAttribute("data-min");
+        if(user.pass.length >= threeLength ) {
+            passInput.classList.add("ok");
+            passInput.classList.remove("error");
+            errorMessagePass.classList.remove("passErrorShow");
+        } else{
+            passInput.classList.add("error");
+            passInput.classList.remove("ok");
+            errorMessagePass.classList.add("passErrorShow");
+        }
     });
 
     confPassInput.addEventListener("change", (event) =>{
-
         if(user.pass === event.target.value){
-            console.log("va tutto bene")
+            confPassInput.classList.add("ok");
+            confPassInput.classList.remove("error");
         } else{
-            console.log("errore")
-            errorMessage.classList.add("registrationErrorShow")
-
+            console.log("errore");
+            errorMessage.classList.add("registrationErrorShow");
+            passInput.classList.add("error");
+            confPassInput.classList.add("error");
         }
-
     });
 
     agreedInCond.addEventListener("change", () =>{
         user.agreedInCondition = !user.agreedInCondition;
+        console.log("agreed value: ", user.agreedInCondition);
+        for(i=0;i<=3;i++){
 
-        console.log(user)
-    })
+            if(inputRegistration[i].classList.contains("ok") && user.agreedInCondition == true){
+                btnReg.disabled = false;
+            }
+        }
+    });
 
+    
 
+    
    
 
 
 
 };
+

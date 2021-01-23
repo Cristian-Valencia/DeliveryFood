@@ -398,12 +398,19 @@
     position: fixed;
     top: 35%;
     left: 50%;
-    background-color: rgb(134, 255, 249);
+    background-color: white;
     transform: translate(-50%, -50%);
     width: 90%;
     padding: 100px;
     display: flex;
     justify-content: center;
+    border-radius: 15px;
+}
+
+.registrazioneContainer h2{
+    text-align: center;
+    font-size: 80px;
+    margin: 0px 0 60px 0;
 }
 
 .registrazioneContainer .registrazione{
@@ -417,20 +424,21 @@
     margin: 15px 0;
     width: 100%;
     border: 2px solid #ccc;
+    border-radius: 30px;
 }
 
-.registrazioneContainer ul li:nth-child(5){
+.registrazioneContainer ul li:nth-child(6){
     display: flex;
     flex-wrap: nowrap;
 }
 
-.registrazioneContainer ul li:nth-child(5) input{
+.registrazioneContainer ul li:nth-child(6) input{
     width: 20%;
     height: 50px;
     margin-top: 40px;
 }
 
-.registrazioneContainer ul li:nth-child(5) label{
+.registrazioneContainer ul li:nth-child(6) label{
     font-size: 36px;
     padding-top: 25px;
     font-weight: 600;
@@ -448,6 +456,47 @@
     border-radius: 10px;
     margin: 50px 0 20px 0;
     border: none;
+    opacity: 0.5;
+}
+
+.registrazioneContainer li h3{
+    font-size: 36px;
+    padding-top: 25px;
+    font-weight: 600;
+}
+
+.registrazioneContainer li a{
+    color:rgb(0, 85, 241) ;
+}
+
+.userNameError{
+    display: none;
+}
+
+.userNameErrorShow{
+    color: red;
+    font-size: 30px;
+    display: block;
+}
+
+.mailError{
+    display: none;
+}
+
+.mailErrorShow{
+    color: red;
+    font-size: 30px;
+    display: block;
+}
+
+.passError{
+    display: none;
+}
+
+.passErrorShow{
+    color: red;
+    font-size: 30px;
+    display: block;
 }
 
 .registrationError{
@@ -460,6 +509,15 @@
     display: block;
 }
 
+.ok{
+    border-color:#4ecc00;
+    background-color: #edffeba1;
+}
+
+.error{
+    border-color:red;
+    background-color: #ff9999b7;
+}
 /* HamburgerIcon CSS */
 
 .burgerMenuContainer{
