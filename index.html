@@ -26,6 +26,9 @@
 
                 <div class="listContainer">
                     <ul>
+                        <li class="welcomePhrase">
+
+                        </li>
                         <li>
                             <a href="#" class="linkHome">Home</a>
                         </li>
@@ -46,7 +49,7 @@
                         <li>
                             <a href="#" class="linkRistDesktop">Ristoranti</a>
                         </li>
-                        <li>
+                        <li class="welcomePlace">
                             <a href="#" class="linkLogDesktop">Login/Registrazione</a>
                         </li>
                     </ul>
@@ -78,15 +81,15 @@
 
                 <ul>
                     <li>
-                        <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" autocomplete="none" data-min="20">
+                        <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" data-min="15" autocomplete="off" class="logMail">
                     </li>
                     <li>
-                        <input type="password" name="password" placeholder="Password" maxlength="20" autocomplete="none" data-min="10"> 
+                        <input type="password" name="password" placeholder="Password" maxlength="20" data-min="10" autocomplete="off" class="logPass"> 
                         <br>
                         <a href="#">Hai dimenticato la password?</a>
                     </li>
                     <li>
-                        <button>Accedi</button>
+                        <button class="logBtn">Accedi</button>
                     </li>
 
                     <li>
@@ -94,7 +97,7 @@
                     </li>
 
                     <li>
-                        <h3>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla<a href="#">Privacy</a>e sui <a href="#">Cookie</a>.</h3>
+                        <h3>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla <a href="#">Privacy</a>e sui <a href="#">Cookie</a>.</h3>
                     </li>
 
                     <li>
@@ -115,28 +118,28 @@
                     </li>
 
                     <li>
-                        <input type="username" name="user" placeholder="Inserire Username" maxlength="90" autocomplete="none" data-min="3" class="userName">
+                        <input type="username" name="user" placeholder="Inserire Username" maxlength="90" data-min="3" class="userName" autocomplete="off">
                         <p class="userNameError">Questo campo deve contenere almeno 3 caratteri.</p>
                     </li>
 
                     <li>
-                        <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" autocomplete="none" data-min="15" class="email">
+                        <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" data-min="15" class="email" autocomplete="off">
                         <p class="mailError">Questo campo deve contenere almeno 15 caratteri.</p>
                     </li>
 
                     <li>
-                        <input type="password" name="password" placeholder="Password" maxlength="20" autocomplete="none" data-min="10" class="password"> 
+                        <input type="password" name="password" placeholder="Password" maxlength="20"  data-min="10" class="password" autocomplete="off"> 
                         <p class="passError">Questo campo deve contenere almeno 10 caratteri.</p>
                     </li>
 
                     <li>
-                        <input type="password" name="confirmPassword" placeholder="Conferma Password" maxlength="20" autocomplete="none" data-min="10" class="confirmPassword"> 
+                        <input type="password" name="confirmPassword" placeholder="Conferma Password" maxlength="20"  data-min="10" class="confirmPassword"> 
                         <p class="registrationError">Le due password non corrispondono</p>
                     </li>
 
                     <li>
                         <input type="checkbox" class="agreedCheck">
-                        <label>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla<a href="#">Privacy</a>e sui <a href="#">Cookie</a>.</label>
+                        <label>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla <a href="#">Privacy </a>e sui <a href="#">Cookie</a>.</label>
                     </li>
 
                     <li> 
@@ -144,7 +147,7 @@
                     </li>
 
                     <li>
-                        <h3>Sei già registrato? <a href="#">Accedi</a></h3>
+                        <h3>Sei già registrato? <a href="#" class="retBtn">Accedi</a></h3>
                     </li>
                 </ul>
             </form>

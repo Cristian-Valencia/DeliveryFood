@@ -147,6 +147,7 @@ window.onload=function()
     const agreedInCond = document.querySelector(".agreedCheck");
     const inputRegistration = document.querySelectorAll(".registrazioneContainer input");
     const btnReg = document.querySelector(".regBtn");
+    const returnLogin = document.querySelector(".retBtn");
     const user = {
         userName: " ",
         eMail: " ",
@@ -169,6 +170,8 @@ window.onload=function()
         accedi.classList.toggle("accediContainerShow");
 
         space.classList.toggle("blankSpaceShow");
+
+        
 
     })
 
@@ -252,6 +255,7 @@ window.onload=function()
         if(user.pass === event.target.value){
             confPassInput.classList.add("ok");
             confPassInput.classList.remove("error");
+            passInput.classList.remove("error");
         } else{
             console.log("errore");
             errorMessage.classList.add("registrationErrorShow");
@@ -262,16 +266,65 @@ window.onload=function()
 
     agreedInCond.addEventListener("change", () =>{
         user.agreedInCondition = !user.agreedInCondition;
-        console.log("agreed value: ", user.agreedInCondition);
         for(i=0;i<=3;i++){
 
             if(inputRegistration[i].classList.contains("ok") && user.agreedInCondition == true){
                 btnReg.disabled = false;
+                btnReg.style.opacity = "1";
             }
         }
     });
 
+    btnReg.addEventListener("click", (event) => {
+        event.preventDefault();
+        space.classList.remove("blankSpaceShow");
+        registration.classList.remove("registrazioneContainerShow");
+        document.querySelector(".welcomePhrase").innerHTML += "<a href=#>Benvenuto " + user.userName + "<a/>";
+
+        const linkDesktop = document.querySelector(".linkLogDesktop");
+        linkDesktop.remove();
+        document.querySelector(".welcomePlace").innerHTML += "<a href=#>Benvenuto " + user.userName + "<a/>";
+    });
     
+    returnLogin.addEventListener("click", () =>{
+
+        accedi.classList.add("accediContainerShow");
+
+        registration.classList.remove("registrazioneContainerShow");
+    })
+
+    const mailLogInput = document.querySelector(".logMail");
+    const passLogInput = document.querySelector(".logPass");
+    const buttonLog = document.querySelector(".logBtn");
+
+    mailLogInput.addEventListener("change", (event) => {
+        const lengthOne = mailLogInput.getAttribute("data-min");
+        console.log(event.target.value.length);
+
+        if(event.target.value.length >= lengthOne){
+            mailLogInput.classList.add("ok");
+            mailLogInput.classList.remove("error");
+        } else {
+            mailLogInput.classList.add("error");
+            mailLogInput.classList.remove("ok");
+        }
+    });
+
+    passLogInput.addEventListener("change", (event) => {
+        const lengthTwo = passLogInput.getAttribute("data-min");
+        
+        if(event.target.value.length >= lengthTwo){
+            passLogInput.classList.add("ok");
+            passLogInput.classList.remove("error");
+        } else{
+            passLogInput.classList.add("error");
+            passLogInput.classList.remove("ok");
+        }
+
+        if(passLogInput.classList.contains("ok") && mailLogInput.classList.contains("ok")){
+            buttonLog.style.opacity = "1"
+        }
+    });
 
     
    
