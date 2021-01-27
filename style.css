@@ -21,23 +21,34 @@
 
 .homeContainer{
     background-image: url(img/finalBakgroundImageBlack.jpg);
-    height: 809px;
+    height: 300px;
     background-size: cover;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
     overflow: hidden;
 }
 
+@media screen and (min-width:1028px){
+    .homeContainer{
+        height: 786px;
+    }
+}
+
 /* menuContainer CSS */
 
 .menuContainer{
-    /* background-color: rgba(0, 0, 0, 0.815); */
-    height: 150px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     align-items: center;
-    padding: 45px;
+    padding: 10px 20px;
+}
+
+@media screen and (min-width:1028px){
+    .menuContainer {
+        height: 120px;
+    }    
 }
 
 /* logoContainer CSS */
@@ -48,10 +59,18 @@
 
 .logo{
     background-image: url(img/logo-bianco.png);
-    background-size: cover;
-    width: 105px;
-    height: 78px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 39px;
     display: inline-block;
+}
+
+@media screen and (min-width:1028px){
+    .logo {
+        width: 100px;
+        height: 80px;
+    }
 }
 
 .logo:hover{
@@ -65,11 +84,12 @@
     display: none;
     position: absolute;
     width: 100%;
-    top: 16%;
+    top: 25%;
     right: -100%;
     text-align: right;
     background-color: white;
     animation: goToRight 0.5s;
+    z-index: 4;
 }
 
 @media screen and (min-width: 1028px) {
@@ -89,7 +109,7 @@
 
     .listContainerDesktop li{
         display: inline;
-        font-size: 35px;
+        font-size: 40px;
         margin-left: 70px;
     }
 
@@ -112,20 +132,20 @@
 }
 
 .listContainer > ul{
-    padding: 30px 20px;
+    padding: 15px 20px;
 }
 
 .listContainer li{
-    padding-left: 175px;
+    padding-left: 61px;
     padding-bottom: 25px;
 }
 
 .listContainer a{
     color: black;
-    font-size: 50px;
+    font-size: 18px;
     font-weight: 600;
     position: relative;
-    padding-right: 130px;
+    padding-right: 50px;
 }
 
 
@@ -141,10 +161,10 @@
 .listContainer ul > li > a::after{
     content: "";
     background-size: contain;
-    width: 100px;
-    height: 55px;
+    width: 28px;
+    height: 50px;
     position: absolute;
-    top: 18%;
+    top: 5%;
     right: -1%;
 }
 
@@ -163,7 +183,7 @@
 .blankSpaceMenu{
     background-color: rgba(0, 0, 0, 0.226);
     position: fixed;
-    top: 25%;
+    top: 29%;
     left: 0%;
     width: 100%;
     height: 100%;
@@ -171,16 +191,20 @@
     display: none;
 }
 
+.blankSpaceMenuShow{
+    display: block;
+}
+
 /* FORM CSS */
 
 .formContainer{
     position: absolute;
-    top: 45%;  
+    top: 50%;
     left: 50%;
     background-color: white;
-    padding: 50px;
+    padding: 20px;
     transform: translate(-50%, -50%);
-    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 15px 5px rgb(0 0 0 / 30%);
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -189,20 +213,20 @@
 
 @media screen and (min-width: 1028px) {
     .formContainer{
-        top: 84%;
+        top: 71%;
         left: 34%;
-        width: 62%;
+        width: 56%;
     }
   }
 
 
 .formContainer input{
-    padding: 20px;
-    font-size: 50px;
-    width: 48%;
-    border: 1px solid rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 20px;
+    width: 49%;
+    border: 1px solid #9c9a9a;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 12px;
 }
 
 @media screen and (min-width: 1028px) {
@@ -213,7 +237,7 @@
   }
 
 .formContainer .city{
-    margin-left: 30px;
+    margin-left: 2%;
 }
 
 @media screen and (min-width: 1028px) {
@@ -229,13 +253,13 @@
 /* Button CSS */
 
 .search{
-    padding: 30px;
-    font-size: 60px;
+    padding: 10px;
+    font-size: 25px;
     width: 100%;
     border: none;
     color: white;
     background-color: rgb(255, 153, 28);
-    margin-top: 25px;
+    margin-top: 15px;
     border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
@@ -262,13 +286,13 @@
 .accediContainerShow{
     z-index: 4;
     position: fixed;
-    top: 35%;
+    top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     width: 100%;
     max-height: 600px;
-    padding: 40px;
+    padding: 15px;
     display: block;
 }
 
@@ -281,7 +305,7 @@
     }
 
     .accediContainerShow{
-        top: 21%;
+        top: 30%;
         width: 60%;
         max-height: 300px;
         display: block;
@@ -290,14 +314,14 @@
 
 .accedi{
     background-color: white;
-    padding: 40px 50px;
+    padding: 10px 20px;
     border-radius: 10px;
 }
 
 .accedi h2{
     text-align: center;
-    font-size: 80px;
-    margin: 20px 0 40px 0;
+    font-size: 40px;
+    margin: 10px 0 20px 0;
 }
 
 @media screen and (min-width: 1028px) {
@@ -311,17 +335,22 @@
 }
 
 .accedi ul li:nth-child(2) a{
-    font-size: 35px;
+    font-size: 20px;
     font-weight: 600;
-    margin-top: 50px;
+}
+
+@media screen and (min-width:1028px){
+    .accedi ul li:nth-child(2) a{
+        font-size: 30px;
+    }
 }
 
 .accedi ul li:nth-child(2){
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 
 .accedi ul li h3{
-    font-size: 36px;
+    font-size: 18px;
     padding: 20px 0;
 }
 
@@ -336,10 +365,10 @@
 }
 
 .accedi input{
-    font-size: 40px;
-    height: 110px;
+    font-size: 30px;
+    height: 60px;
     padding: 10px;
-    margin: 15px 0;
+    margin: 10px 0;
     width: 100%;
     border: 2px solid #ccc;
 }
@@ -353,12 +382,12 @@
 .accedi button{
     background-color: rgb(255, 153, 28);
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 600;
-    padding: 20px;
+    padding: 15px;
     width: 80%;
     border-radius: 10px;
-    margin: 20px 0;
+    margin: 10px 0;
     border: none;
     opacity: 0.7;
 }
@@ -402,12 +431,12 @@
 .registrazioneContainerShow{
     z-index: 4;
     position: fixed;
-    top: 35%;
+    top: 49%;
     left: 50%;
     background-color: white;
     transform: translate(-50%, -50%);
     width: 90%;
-    padding: 100px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     border-radius: 15px;
@@ -425,8 +454,8 @@
 
 .registrazioneContainer h2{
     text-align: center;
-    font-size: 80px;
-    margin: 0px 0 60px 0;
+    font-size: 30px;
+    margin: 0px 0 25px 0;
 }
 
 @media screen and (min-width: 1028px){
@@ -441,13 +470,13 @@
 }
 
 .registrazioneContainer ul li input{
-    font-size: 40px;
-    height: 110px;
+    font-size: 25px;
+    height: 55px;
     padding: 10px;
     margin: 15px 0;
     width: 100%;
     border: 2px solid #ccc;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 @media screen and (min-width: 1028px){
@@ -464,22 +493,21 @@
 
 .registrazioneContainer ul li:nth-child(6) input{
     width: 20%;
-    height: 50px;
-    margin-top: 40px;
+    height: 67px;
 }
 
 @media screen and (min-width: 1028px){
     .registrazioneContainer ul li:nth-child(6) input {
         width: 10%;
-        height: 40px;
+        height: 90px;
     }
 }
 
 .registrazioneContainer ul li:nth-child(6) label{
-    font-size: 36px;
+    font-size: 15px;
     padding-top: 25px;
     font-weight: 600;
-    padding-left: 35px;
+    padding-left: 10px;
     text-align: left;
 }
 
@@ -493,12 +521,12 @@
 .registrazioneContainer button{
     background-color: rgb(255, 153, 28);
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 600;
-    padding: 20px;
+    padding: 15px;
     width: 80%;
     border-radius: 10px;
-    margin: 50px 0 20px 0;
+    margin: 10px 0 10px 0;
     border: none;
     opacity: 0.5;
 }
@@ -511,8 +539,8 @@
 }
 
 .registrazioneContainer li h3{
-    font-size: 36px;
-    padding-top: 25px;
+    font-size: 20px;
+    padding-top: 10px;
     font-weight: 600;
 }
 
@@ -533,7 +561,7 @@
 
 .userNameErrorShow{
     color: red;
-    font-size: 30px;
+    font-size: 15px;
     display: block;
 }
 
@@ -543,7 +571,7 @@
 
 .mailErrorShow{
     color: red;
-    font-size: 30px;
+    font-size: 15px;
     display: block;
 }
 
@@ -553,7 +581,7 @@
 
 .passErrorShow{
     color: red;
-    font-size: 30px;
+    font-size: 15px;
     display: block;
 }
 
@@ -563,7 +591,7 @@
 
 .registrationErrorShow{
     color: red;
-    font-size: 30px;
+    font-size: 15px;
     display: block;
 }
 
@@ -590,10 +618,10 @@
   }
 
 .one, .two, .three{
-    height: 5px;
-    width: 45px;
+    height: 3px;
+    width: 40px;
     background-color: white;
-    margin: 5px 0;
+    margin: 4px 0;
 }
 
 .one{
@@ -623,9 +651,9 @@
 
 
 .headerText{
-    font-size: 80px;
+    font-size: 30px;
     text-align: center;
-    margin-top: 195px;
+    margin-top: 50px;
     color: white;
     animation: textUp 0.5s;
 }
@@ -638,10 +666,8 @@
 
 @media screen and (min-width: 1028px) {
     .headerText{
-        font-size: 90px;
-        text-align: center;
-        margin-top: 91px;
-        color: white;
+        font-size: 80px;
+        margin-top: 150px;
     }
   }
 
@@ -654,16 +680,16 @@
     display: block;
     overflow: hidden;
     width: 100%;
-    height: 500px;
+    height: 250px;
     position: relative;
 }
 
 .carouselContainer img{
     width: 100%;
-    height: 500px;
+    height: 300px;
     position: absolute;
-    left:100%;
-    top:50%;
+    left: 100%;
+    top: 50%;
     transform: translateY(-50%);
     transition: left 1s;
     z-index: 1;
@@ -681,6 +707,12 @@
 
 .carouselSectionContainer{
     margin-top: 300px;
+}
+
+@media screen and (min-width:1028px){
+    .carouselSectionContainer{
+        margin-top: 100px;
+    }
 }
 
 .carouselSectionContainer .white{
@@ -741,16 +773,24 @@
   }
 
 .carouselSectionContainer h2{
-    font-size: 70px;
-    padding-left: 20px;
-    padding-bottom: 20px;
+    font-size: 35px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width:1028px){
+    .carouselSectionContainer h2{
+        font-size: 60px;
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
 }
 
 /* AppContainer CSS */
 
 .appContainer{
     width: 100%;
-    margin: 150px 0;
+    margin: 100px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -777,7 +817,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 @media screen and (min-width: 1028px) {
@@ -810,18 +850,18 @@
 .footerContainer{
     width: 100%;
     background: #4da3a4;
-    padding: 40px 50px;
+    padding: 20px 20px;
     clip-path: polygon(0 0, 100% 9%, 100% 100%, 0% 100%);
 }
 
 
 .footerContainer .menuFooter li{
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .footerContainer .menuFooter a{
     color: white;
-    font-size: 70px;
+    font-size: 20px;
 }
 
 @media screen and (min-width: 1028px) {
@@ -832,7 +872,7 @@
 }
 
 .footerContainer h2{
-    font-size: 73px;
+    font-size: 30px;
     margin: 30px 30px 30px 0;
     color: white;
 }
@@ -854,14 +894,14 @@
 
 .social li{
     font-family: social;
-    margin-left: .85em;  
+    margin-left: .85em;
     margin-bottom: 0.5em;
     background-color: white;
     width: 2em;
     border-radius: 50%;
     text-align: center;
     line-height: 2em;
-    font-size: 310%;
+    font-size: 30px;
     margin-top: .5em;
     cursor: pointer;
     transition: color 0.6s, opacity 0.6s;
@@ -873,6 +913,15 @@
     color:rgb(255, 153, 28);
     opacity: 0.8;
 }
+
+/* Map */
+
+#map{
+    height: 200px;
+    width: 100%;
+}
+
+/* Map */
 
 /* paymentCSS */
 
@@ -972,13 +1021,13 @@
     }
 
     100% {
-        margin-top: 195px;
+        margin-top: 50px;
     }
   }
 
   @keyframes textDown {
     0% {
-        margin-top: 195px;
+        margin-top: 50px;
     }
 
     100% {

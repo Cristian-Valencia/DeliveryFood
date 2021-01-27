@@ -2,12 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
         <title>LABFORFOOD Delivery</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="reset.css">
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;700&display=swap" rel="stylesheet">
         <script src="index.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AizaSyCrWmZ9FKBsH5eLFwGWtl0JcFoUWfyaMus&callback=initMap&libraries=&v=weekly" defer></script>
     </head>
     
     <body>
@@ -26,16 +29,13 @@
 
                 <div class="listContainer">
                     <ul>
-                        <li class="welcomePhrase">
-
-                        </li>
                         <li>
                             <a href="#" class="linkHome">Home</a>
                         </li>
                         <li>
                             <a href="#" class="linkRist">Ristoranti</a>
                         </li>
-                        <li>
+                        <li class="welcomeMobile">
                             <a href="#" class="linkLog">Login/Registrazione</a>
                         </li>
                     </ul>
@@ -98,10 +98,6 @@
 
                     <li>
                         <h3>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla <a href="#">Privacy</a>e sui <a href="#">Cookie</a>.</h3>
-                    </li>
-
-                    <li>
-                        <div class="test"></div>
                     </li>
                     
                 </ul>
@@ -240,7 +236,12 @@
 
             </div>
 
+            <div id="map">
+
+            </div>
+
             <div class="paymentsContainer">
+
                 <div>
                     <img src="img/paypalLogo.png" alt="PayPal Logo">
                 </div>
@@ -252,6 +253,8 @@
                 </div>
             </div>
         </footer>
+
+        
 
 
     </body>

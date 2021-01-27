@@ -2,6 +2,7 @@ window.onload=function()
 {   
 
     const burgerMenuBtn = document.querySelector(".burgerMenuContainer");
+    const blankMenu = document.querySelector(".blankSpaceMenu")
 
     burgerMenuBtn.addEventListener("click", ()=>{
 
@@ -15,7 +16,10 @@ window.onload=function()
 
         document.querySelector(".three").classList.toggle("threeX");
 
-        document.querySelector(".headerText").classList.toggle("headerTextDown")
+        document.querySelector(".headerText").classList.toggle("headerTextDown");
+
+        blankMenu.classList.toggle("blankSpaceMenuShow");
+
 
     });
 
@@ -163,6 +167,8 @@ window.onload=function()
 
         space.classList.toggle("blankSpaceShow");
 
+        blankMenu.classList.remove("blankSpaceMenuShow");
+
     });
 
     loginBtnDesk.addEventListener("click", () =>{
@@ -256,6 +262,8 @@ window.onload=function()
             confPassInput.classList.add("ok");
             confPassInput.classList.remove("error");
             passInput.classList.remove("error");
+            errorMessage.classList.remove("registrationErrorShow");
+
         } else{
             console.log("errore");
             errorMessage.classList.add("registrationErrorShow");
@@ -279,7 +287,8 @@ window.onload=function()
         event.preventDefault();
         space.classList.remove("blankSpaceShow");
         registration.classList.remove("registrazioneContainerShow");
-        document.querySelector(".welcomePhrase").innerHTML += "<a href=#>Benvenuto " + user.userName + "<a/>";
+        loginBtn.remove();
+        document.querySelector(".welcomeMobile").innerHTML += "<a href=#>Benvenuto " + user.userName + "<a/>";
 
         const linkDesktop = document.querySelector(".linkLogDesktop");
         linkDesktop.remove();
@@ -327,7 +336,14 @@ window.onload=function()
     });
 
     
-   
+    let map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+      });
+    }
 
 
 
