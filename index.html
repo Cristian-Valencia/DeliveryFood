@@ -8,9 +8,7 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;700&display=swap" rel="stylesheet">
-        <script src="index.js"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AizaSyCrWmZ9FKBsH5eLFwGWtl0JcFoUWfyaMus&callback=initMap&libraries=&v=weekly" defer></script>
     </head>
     
     <body>
@@ -66,7 +64,7 @@
         <div class="blankSpaceMenu"></div>
 
         <form class="formContainer" method="POST">
-            <input type="text" name="Indirizzo" placeholder="Indirizzo, Via del..." class="address">
+            <input type="text" name="Indirizzo" placeholder="Indirizzo, Via del..." class="address" id="address">
             <input type="text" name="Numero Civico" placeholder="N° Civico" class="number">
             <input type="text" name="Città" placeholder="Città" class="city">
             <button class="search">Cerca</button>
@@ -254,8 +252,9 @@
             </div>
         </footer>
 
-        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWmZ9FKBsH5eLFwGWtl0JcFoUWfyaMus&libraries=places" async defer></script>
 
+        <script src="index.js"></script>
 
     </body>
 </html>

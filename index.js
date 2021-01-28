@@ -335,17 +335,50 @@ window.onload=function()
         }
     });
 
+    // API Google Maps
+
+
+    navigator.geolocation.getCurrentPosition(position);
+
+    var la,lo;
+
+    function position(pos){
+        la = pos.coords.latitude;
+        lo = pos.coords.longitude;
+
+        console.log(la);
+
+        console.log(lo);
+
+        initMap();
+
+        var marker = new google.maps.Marker(
+            {
+            position: {lat: la, lng: lo},
+            map: map
+        }); 
+    };
+
     
-    let map;
+
+    var map;
 
     function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
-      });
-    }
+
+   
+
+        
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: la, lng: lo },
+          zoom: 15,
+        });
+      }
+
+      
 
 
+    
 
 };
 
