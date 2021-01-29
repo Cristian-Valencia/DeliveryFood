@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;700&display=swap" rel="stylesheet">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWmZ9FKBsH5eLFwGWtl0JcFoUWfyaMus&libraries=places"></script>
     </head>
     
     <body>
@@ -63,12 +64,22 @@
 
         <div class="blankSpaceMenu"></div>
 
-        <form class="formContainer" method="POST">
-            <input type="text" name="Indirizzo" placeholder="Indirizzo, Via del..." class="address" id="address">
+        <form class="formContainer" >
+            <input type="text" name="Indirizzo" placeholder="Indirizzo, Via del..." class="address" id="indirizzo">
+            <input type="hidden" id="latlon" name="latlon">
             <input type="text" name="Numero Civico" placeholder="N° Civico" class="number">
             <input type="text" name="Città" placeholder="Città" class="city">
             <button class="search">Cerca</button>
         </form>
+
+        <div id="loadMap">
+            <section>
+                <div id="mappa"></div>
+                <button id="conferma">Confermi indirizzo?</button>
+            </section>
+        </div>
+
+        <img src="img/loader.gif" alt="loader gif" class="loader">
 
         <!-- Accedi/Registrazione -->
 
@@ -234,9 +245,9 @@
 
             </div>
 
-            <div id="map">
+            <!-- <div id="map">
 
-            </div>
+            </div> -->
 
             <div class="paymentsContainer">
 
@@ -252,8 +263,8 @@
             </div>
         </footer>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWmZ9FKBsH5eLFwGWtl0JcFoUWfyaMus&libraries=places" async defer></script>
-
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWmZ9FKBsH5eLFwGWtl0JcFoUWfyaMus&libraries=places" async defer></script> -->
+        
         <script src="index.js"></script>
 
     </body>

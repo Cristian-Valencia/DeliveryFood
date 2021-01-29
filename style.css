@@ -927,6 +927,39 @@
     }
 }
 
+#loadMap{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 10;
+    display: none;
+}
+
+.loader{
+    font-size: 2em;
+    color: red;
+    background-color: yellow;
+    display: block;
+}
+
+
+#loadMap section{
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+    text-align: center;
+    background: #fff;
+}
+
+#loadMap section #mappa{
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
 /* Map */
 
 /* paymentCSS */

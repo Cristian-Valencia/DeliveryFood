@@ -1,6 +1,8 @@
 window.onload=function()
 {   
 
+    geolocate();
+
     const burgerMenuBtn = document.querySelector(".burgerMenuContainer");
     const blankMenu = document.querySelector(".blankSpaceMenu")
 
@@ -158,6 +160,11 @@ window.onload=function()
         pass: " ",
         agreedInCondition: false
     };
+    const mailLogInput = document.querySelector(".logMail");
+    const passLogInput = document.querySelector(".logPass");
+    const buttonLog = document.querySelector(".logBtn");
+    const searchBtn = document.querySelector(".search");
+    const loadedMap =document.getElementById("loadMap");
 
 
 
@@ -302,9 +309,7 @@ window.onload=function()
         registration.classList.remove("registrazioneContainerShow");
     })
 
-    const mailLogInput = document.querySelector(".logMail");
-    const passLogInput = document.querySelector(".logPass");
-    const buttonLog = document.querySelector(".logBtn");
+
 
     mailLogInput.addEventListener("change", (event) => {
         const lengthOne = mailLogInput.getAttribute("data-min");
@@ -337,48 +342,161 @@ window.onload=function()
 
     // API Google Maps
 
+    var nC;
 
-    navigator.geolocation.getCurrentPosition(position);
+    const numCiv = document.querySelector(".number");
 
-    var la,lo;
+    numCiv.addEventListener("input", (event) =>{
+        nC = event.target.value;
 
-    function position(pos){
-        la = pos.coords.latitude;
-        lo = pos.coords.longitude;
-
-        console.log(la);
-
-        console.log(lo);
-
-        initMap();
-
-        var marker = new google.maps.Marker(
-            {
-            position: {lat: la, lng: lo},
-            map: map
-        }); 
-    };
+        console.log("questo è nC: ", nC);
+    });
 
     
 
-    var map;
 
-    function initMap() {
-
-   
-
-        
-
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: la, lng: lo },
-          zoom: 15,
-        });
-      }
-
-      
+    searchBtn.addEventListener("click",(e)=>{
+        e.preventDefault();
+        console.log(e);
+        loadedMap.style.display="block";
+    });
 
 
     
 
 };
 
+
+var autocomplete;
+
+
+
+function initAutocomplete(){
+    autocomplete = new google.maps.places.Autocomplete(
+    (document.getElementById("indirizzo")),
+    {types: ['address']}
+    );  
+    autocomplete.addListener('place_changed', fillInAddress);
+}
+
+
+// function initAutocomplete(){
+//     autocomplete = new google.maps.places.Autocomplete(
+//       (document.getElementById("indirizzo")),
+//       {types: ['address']});  
+//       autocomplete.addListener('place_changed', fillInAddress);
+//   }
+
+function fillInAddress(){ 
+
+    // const capInput = document.querySelector(".number");
+    // const cityInput = document.querySelector(".city");
+    
+    var place = autocomplete.getPlace();      
+    console.log(place);    
+    via=place.address_components[0].long_name;
+    citta=place.address_components[1].long_name;
+    console.log(via);  
+    console.log(citta);
+    civico= nC;
+
+    
+    
+    const address = `${via} ${civico} ${citta}`;
+
+    // capInput.innerHTML= "ciao";
+
+    // cityInput.innerHTML="Berlino";
+
+    console.log(`questo è l'address ${address}`)
+
+    if(nC)
+          
+    trovaCoords(address);   
+              
+}
+
+
+function geolocate(){
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            function(position){              
+                var geolocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            
+        document.getElementById("indirizzo").focus();
+                  
+        var circle = new google.maps.Circle({
+            center: geolocation,
+            radius: position.coords.accuracy
+        });        
+                  
+        console.log(circle.getBounds());     
+        
+        initAutocomplete();
+        
+        // console.log(autocomplete);
+
+        if(autocomplete){
+            document.querySelector(".loader").style.display="none";
+        }
+                  
+        autocomplete.setBounds(circle.getBounds());
+
+        });
+    }
+}
+
+function initMap(la,ln) {
+
+    console.log("che cosa è la: " + la);
+    console.log("che cosa è lo: " + ln);
+
+    mappa = new google.maps.Map(
+        document.getElementById('mappa'), 
+            {
+                center: {lat: la, lng: ln},
+                zoom: 14,
+                mapTypeId: 'roadmap'
+            }
+        );
+          
+        var marker = new google.maps.Marker(
+            {
+            position: {lat: la, lng: ln},
+            map: mappa
+        }); 
+          
+} //initMap    
+
+    
+
+function trovaCoords(indirizzo){
+
+    var geocoder;
+
+    geocoder = new google.maps.Geocoder();  
+      
+    geocoder.geocode({'address': indirizzo}, function(results, status) {    
+        if (status == google.maps.GeocoderStatus.OK) {
+          
+            document.getElementById('latlon').value = results[0].geometry.location;
+              
+            var lat_lon= document.getElementById('latlon').value;   
+
+            var dividiLatLon=lat_lon.split(",") 
+              
+            var latitudine=parseFloat(dividiLatLon[0].replace("(",""));
+
+            var longitudine=parseFloat(dividiLatLon[1].replace(")","").trim()); 
+              
+            initMap(latitudine,longitudine);
+              
+        } else {
+             alert('Geocode non ha funzionato per il seguente motivo: ' + status);
+          }
+        });
+      
+      }
