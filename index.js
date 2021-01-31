@@ -1,3 +1,5 @@
+var via, citta, cap, civico;
+
 window.onload=function()
 {   
 
@@ -5,6 +7,7 @@ window.onload=function()
 
     const burgerMenuBtn = document.querySelector(".burgerMenuContainer");
     const blankMenu = document.querySelector(".blankSpaceMenu")
+    const lContainer = document.querySelector(".listContainer");
 
     burgerMenuBtn.addEventListener("click", ()=>{
 
@@ -20,7 +23,13 @@ window.onload=function()
 
         document.querySelector(".headerText").classList.toggle("headerTextDown");
 
-        blankMenu.classList.toggle("blankSpaceMenuShow");
+        if(lContainer.classList.contains("showListContainer")){
+            blankMenu.style.display = "block";
+        } else{
+            blankMenu.style.display = "none";
+        }
+
+        
 
 
     });
@@ -165,6 +174,8 @@ window.onload=function()
     const buttonLog = document.querySelector(".logBtn");
     const searchBtn = document.querySelector(".search");
     const loadedMap =document.getElementById("loadMap");
+    const civicoInput = document.querySelector(".number");
+    var numCiv;
 
 
 
@@ -294,8 +305,10 @@ window.onload=function()
         event.preventDefault();
         space.classList.remove("blankSpaceShow");
         registration.classList.remove("registrazioneContainerShow");
-        loginBtn.remove();
-        document.querySelector(".welcomeMobile").innerHTML += "<a href=#>Benvenuto " + user.userName + "<a/>";
+        document.querySelector(".welcomeMobile").style.display="none";
+        document.querySelector(".welcomeMobileName").style.display="block";
+        document.querySelector(".welcomeMobileName").innerHTML += `<a href=# class="linkLogName">Benvenuto ${user.userName}<a/>`;
+        // 
 
         const linkDesktop = document.querySelector(".linkLogDesktop");
         linkDesktop.remove();
@@ -341,23 +354,22 @@ window.onload=function()
     });
 
     // API Google Maps
-
-    var nC;
-
-    const numCiv = document.querySelector(".number");
-
-    numCiv.addEventListener("input", (event) =>{
-        nC = event.target.value;
-
-        console.log("questo è nC: ", nC);
-    });
-
     
+    civicoInput.addEventListener("blur", (e)=>{
 
+        numCiv = e.target.value;
+
+        civico = e.target.value;
+
+        console.log("test num civ: ", numCiv);
+
+        fillInAddress(civico);
+
+    });
+    
 
     searchBtn.addEventListener("click",(e)=>{
         e.preventDefault();
-        console.log(e);
         loadedMap.style.display="block";
     });
 
@@ -387,32 +399,29 @@ function initAutocomplete(){
 //       autocomplete.addListener('place_changed', fillInAddress);
 //   }
 
-function fillInAddress(){ 
+function fillInAddress(civico){ 
 
     // const capInput = document.querySelector(".number");
     // const cityInput = document.querySelector(".city");
     
     var place = autocomplete.getPlace();      
     console.log(place);    
-    via=place.address_components[0].long_name;
-    citta=place.address_components[1].long_name;
+    via = place.address_components[0].long_name;
+    citta = place.address_components[1].long_name;
     console.log(via);  
     console.log(citta);
-    civico= nC;
-
-    
-    
-    const address = `${via} ${civico} ${citta}`;
 
     // capInput.innerHTML= "ciao";
+
+    const address = `${via} ${civico} ${citta}`;
 
     // cityInput.innerHTML="Berlino";
 
     console.log(`questo è l'address ${address}`)
 
-    if(nC)
-          
-    trovaCoords(address);   
+    
+
+    trovaCoords(address); 
               
 }
 
@@ -441,6 +450,7 @@ function geolocate(){
 
         if(autocomplete){
             document.querySelector(".loader").style.display="none";
+            document.querySelector(".loaderContainer").style.display="none";
         }
                   
         autocomplete.setBounds(circle.getBounds());
@@ -458,7 +468,7 @@ function initMap(la,ln) {
         document.getElementById('mappa'), 
             {
                 center: {lat: la, lng: ln},
-                zoom: 14,
+                zoom: 19,
                 mapTypeId: 'roadmap'
             }
         );

@@ -28,6 +28,9 @@
 
                 <div class="listContainer">
                     <ul>
+                        <li class="welcomeMobileName">
+
+                        </li>
                         <li>
                             <a href="#" class="linkHome">Home</a>
                         </li>
@@ -37,6 +40,8 @@
                         <li class="welcomeMobile">
                             <a href="#" class="linkLog">Login/Registrazione</a>
                         </li>
+
+                        
                     </ul>
                 </div>
 
@@ -50,6 +55,9 @@
                         </li>
                         <li class="welcomePlace">
                             <a href="#" class="linkLogDesktop">Login/Registrazione</a>
+                        </li>
+                        <li class="dropDown">
+                            <a href="#" class="dropDownLink">Log Out</a>
                         </li>
                     </ul>
                 </div>
@@ -65,10 +73,10 @@
         <div class="blankSpaceMenu"></div>
 
         <form class="formContainer" >
+
             <input type="text" name="Indirizzo" placeholder="Indirizzo, Via del..." class="address" id="indirizzo">
             <input type="hidden" id="latlon" name="latlon">
             <input type="text" name="Numero Civico" placeholder="N° Civico" class="number">
-            <input type="text" name="Città" placeholder="Città" class="city">
             <button class="search">Cerca</button>
         </form>
 
@@ -79,8 +87,11 @@
             </section>
         </div>
 
-        <img src="img/loader.gif" alt="loader gif" class="loader">
 
+        <div class="loaderContainer">
+            <img src="img/loadingGif.gif" alt="loader gif" class="loader">
+        </div>
+        
         <!-- Accedi/Registrazione -->
 
         <div class="accediContainer">
@@ -262,8 +273,6 @@
                 </div>
             </div>
         </footer>
-
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrWmZ9FKBsH5eLFwGWtl0JcFoUWfyaMus&libraries=places" async defer></script> -->
         
         <script src="index.js"></script>
 
