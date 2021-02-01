@@ -1,7 +1,10 @@
-var via, citta, cap, civico;
+var via, citta, cap, civico, address;
+var addressTest;
 
 window.onload=function()
 {   
+
+    
 
     geolocate();
 
@@ -176,6 +179,14 @@ window.onload=function()
     const loadedMap =document.getElementById("loadMap");
     const civicoInput = document.querySelector(".number");
     var numCiv;
+    const savedAddress = address;
+    const testAddress = document.querySelector(".testAddress");
+    const confirmAddress = document.querySelector("#conferma");
+
+
+    console.log("questo è addressTest fuori: ", addressTest)
+
+    
 
 
 
@@ -364,17 +375,22 @@ window.onload=function()
         console.log("test num civ: ", numCiv);
 
         fillInAddress(civico);
-
     });
     
 
     searchBtn.addEventListener("click",(e)=>{
         e.preventDefault();
         loadedMap.style.display="block";
+        localStorage.setItem("cristian", address);
+
+        console.log("cosa succede: ", address);
     });
 
+    confirmAddress.addEventListener("click",() =>{
+        window.location = "file:///Users/cristian.valencia/Desktop/DeliveryFood/listaRistoranti/restaurants.html";
+    })
 
-    
+
 
 };
 
@@ -413,7 +429,9 @@ function fillInAddress(civico){
 
     // capInput.innerHTML= "ciao";
 
-    const address = `${via} ${civico} ${citta}`;
+    address = `${via} ${civico} ${citta}`;
+
+    var addressTest = address;
 
     // cityInput.innerHTML="Berlino";
 

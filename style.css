@@ -7,15 +7,12 @@
 
 @font-face {
     font-family: 'social';
-    
     src: url('font/social.eot'),
          url('font/social.woff'),
          url('font/social.woff'),
          url('font/social.ttf'),
          url('font/social.svg');
   }
-
-
 
 /* HomeContainer DIV CSS */
 

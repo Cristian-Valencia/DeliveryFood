@@ -1,0 +1,92 @@
+@font-face {
+    font-family: social;  
+    src: font-url('social.eot') format('embedded-opentype');
+    src: font-url('social.woff') format('woff');
+    src: font-url('social.woff2') format('woff2') ;
+    src: font-url('social.ttf') format('truetype');
+    src: font-url('social.svg') format('svg');
+}
+
+$breakPoint:1028px;
+@mixin desktop{
+    @media(min-width: #{$breakPoint}){
+        @content
+    }
+};
+
+.footerContainer{
+    width: 100%;
+    background: #4da3a4;
+    padding: 20px 20px;
+    clip-path: polygon(0 0, 100% 9%, 100% 100%, 0% 100%);
+
+    & .menuFooter li{
+        margin-top: 15px;
+    }
+
+    & .menuFooter a{
+        color: white;
+        font-size: 20px;
+
+        @include desktop{
+            font-size: 40px;
+        }
+    }
+
+    & h2{
+        font-size: 30px;
+        margin: 30px 30px 30px 0;
+        color: white;
+
+        @include desktop{
+            font-size: 50px;
+        }
+    }
+
+    .social{
+        display: flex;
+        & li{
+            font-family: social;
+            margin-left: .85em;
+            margin-bottom: 0.5em;
+            background-color: white;
+            width: 2em;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2em;
+            font-size: 30px;
+            margin-top: .5em;
+            cursor: pointer;
+            transition: color 0.6s, opacity 0.6s;
+
+            &:first-child{
+                margin-left: 0;
+            }
+
+            &:hover{
+                color:rgb(255, 153, 28);
+                opacity: 0.8;
+            }
+        }
+    }
+
+    
+}
+
+.paymentsContainer{
+    overflow: hidden;
+    background-color: #5cc3c5;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+
+    & div{
+        width: 33%;
+
+        & img{
+            width: 100%;
+        }
+    }
+
+    
+}
