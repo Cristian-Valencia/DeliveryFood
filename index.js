@@ -37,6 +37,21 @@ window.onload=function()
 
     });
 
+    blankMenu.addEventListener("click", ()=>{
+
+        blankMenu.style.display="none";
+
+        document.querySelector(".listContainer").classList.remove("showListContainer");
+
+        document.querySelector(".one").classList.remove("oneX");
+
+        document.querySelector(".two").classList.remove("twoX");
+
+        document.querySelector(".three").classList.remove("threeX");
+
+        document.querySelector(".headerText").classList.remove("headerTextDown");
+    })
+
     const slider = () => {
     
         //console.log(document.querySelector(".spostati"))
@@ -381,7 +396,7 @@ window.onload=function()
     searchBtn.addEventListener("click",(e)=>{
         e.preventDefault();
         loadedMap.style.display="block";
-        localStorage.setItem("cristian", address);
+        localStorage.setItem("addressFrom", `Ristoranti vicino a ${address}:`);
 
         console.log("cosa succede: ", address);
     });

@@ -1,0 +1,89 @@
+.cartContainer{
+    display: none;
+    margin: 1em;
+    border: 1px solid #ccc;
+
+    & h1{
+        padding: 1em;
+        border-bottom: 1px solid #ccc;
+        font-size: 22px;
+
+        @include desktop{
+            font-size: 2em;
+        }
+    }
+
+    & .orderListContainer{
+
+        margin-top: 2em;
+
+
+        & .ordersContainer{
+            display: flex;
+            flex-wrap: nowrap;
+
+            & div:first-of-type{
+                width: 70%;
+                margin-top: 0;
+                padding: 1em;
+
+                & h2{
+                    @include desktop{
+                        font-size: 1.5em;
+                    }
+                }
+
+                & p{
+                    margin-top: .5em;
+
+                    @include desktop{
+                        font-size: 1.5em;
+                    }
+                    
+                }
+            }
+
+            & div:last-of-type{
+                width: 30%;
+                margin-top: 0;
+                padding: 1em;
+
+                & h2{
+                    @include desktop{
+                        font-size: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+
+    & .completeOrderCont{
+        display: flex;
+        margin: 1em;
+        justify-content: space-between;
+
+        & .totalAmount{
+            padding: 1em;
+            text-align: right;
+            border-bottom: 1px solid #ccc;
+
+            @include desktop{
+                font-size: 1.5em;
+            }
+        }
+
+        & button{
+            border: none;
+            background-color: #ff991c;
+            color: white;
+            padding: .5em;
+            border-radius: 10px;
+
+            @include desktop{
+                font-size: 1.5em;
+            }
+        }
+    }
+
+    
+}

@@ -1,10 +1,11 @@
 @font-face {
     font-family: social;  
     src: font-url('social.eot') format('embedded-opentype');
-    src: font-url('social.woff') format('woff');
-    src: font-url('social.woff2') format('woff2') ;
-    src: font-url('social.ttf') format('truetype');
-    src: font-url('social.svg') format('svg');
+    src: 
+    font-url('social.woff') format('woff'),
+    font-url('social.woff2') format('woff2'),
+    font-url('social.ttf') format('truetype'),
+    font-url('social.svg') format('svg');
 }
 
 $breakPoint:1028px;
@@ -29,7 +30,7 @@ $breakPoint:1028px;
         font-size: 20px;
 
         @include desktop{
-            font-size: 40px;
+            font-size: 30px;
         }
     }
 
@@ -39,7 +40,7 @@ $breakPoint:1028px;
         color: white;
 
         @include desktop{
-            font-size: 50px;
+            font-size: 40px;
         }
     }
 
@@ -85,6 +86,10 @@ $breakPoint:1028px;
 
         & img{
             width: 100%;
+
+            @include desktop{
+                width: 40%;
+            }
         }
     }
 

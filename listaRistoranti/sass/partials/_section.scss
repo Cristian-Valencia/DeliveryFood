@@ -1,5 +1,74 @@
 section{
-        height: 300px;
         width: 100%;
-        background: wheat;
+
+        .headContent{
+            background-color: white;
+
+            & h2{
+                text-align: center;
+                margin-top: 1.5em;
+                margin-bottom: 1.5em;
+                font-size: 1.1em;
+
+                @include desktop{
+                    text-align: left;
+                    font-size: 2em;
+                    margin: 2em 0 0 2em;
+                }
+            }
+        }
+
+        .restaurantsContainer{
+            background-color: white;
+
+            @include desktop{
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            & div{
+                box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.07);
+                margin: 1em auto;
+                width: 90%;
+                padding: 1em;
+
+                &:last-child{
+                    margin-bottom: 3em;
+                }
+
+                @include desktop{
+                    margin: 3em 5% 2em;
+                    width: 40%;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                & h2{
+                    margin-top: .7em;
+                    font-size: 1.5em;
+
+                    @include desktop{
+                        width: 100%;
+                    }
+                }
+
+                & img{
+                    width: 100%;
+                    height: auto;
+                    clip-path: polygon(0 0, 100% 0%, 100% 87%, 0% 100%);
+                }
+
+                & p{
+                    font-size: 1em;
+                    margin-top: .5em;
+                    color: rgb(131, 131, 131);
+
+                    @include desktop{
+                        width: 50%;
+                    }
+                }
+            }
+        }
+
     }
+

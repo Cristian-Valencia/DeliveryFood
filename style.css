@@ -12,7 +12,7 @@
          url('font/social.woff'),
          url('font/social.ttf'),
          url('font/social.svg');
-  }
+}
 
 /* HomeContainer DIV CSS */
 
@@ -196,6 +196,10 @@
     right: -19%;
 }
 
+.dropDownLink{
+    display: none;
+}
+
 .blankSpaceMenu{
     background-color: rgba(0, 0, 0, 0.226);
     position: fixed;
@@ -241,31 +245,24 @@
 .formContainer input{
     padding: 10px;
     font-size: 20px;
-    width: 49%;
+    width: 25%;
     border: 1px solid #9c9a9a;
     border-radius: 5px;
     margin-top: 12px;
 }
 
-@media screen and (min-width: 1028px) {
-    .formContainer input{
-        font-size: 30px;   
-        width: 49%; 
-    }
-  }
-
-.formContainer .city{
-    margin-left: 2%;
+.number{
+    margin-left: 5%;
 }
 
 @media screen and (min-width: 1028px) {
-    .formContainer .city{
-        margin-left: 15px;
+    .formContainer input{
+        font-size: 30px;   
     }
   }
 
 .formContainer .address{
-    width: 100%;
+    width: 70%;
 }
 
 /* Button CSS */
@@ -724,7 +721,7 @@
 }
 
 .carouselSectionContainer{
-    margin-top: 300px;
+    margin-top: 220px;
 }
 
 @media screen and (min-width:1028px){
