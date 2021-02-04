@@ -120,9 +120,182 @@ window.onload=function()
 
     });
 
+
+    const loginBtn = document.querySelector(".linkLog");
+    const loginBtnDesk = document.querySelector(".linkLogDesktop");
+    const space = document.querySelector(".blankSpace");
+    const accedi = document.querySelector(".accediContainer");
+    const regBtn = document.querySelector(".registrationLink");
+    const registration = document.querySelector(".registrazioneContainer");
+    const mailInput = document.querySelector(".email");
+    const userNameInput = document.querySelector(".userName");
+    const passInput = document.querySelector(".password");
+    const confPassInput = document.querySelector(".confirmPassword");
+    const errorMessage = document.querySelector(".registrationError");
+    const errorMessageUser = document.querySelector(".userNameError");
+    const errorMessageMail = document.querySelector(".mailError");
+    const errorMessagePass = document.querySelector(".passError");
+    const agreedInCond = document.querySelector(".agreedCheck");
+    const inputRegistration = document.querySelectorAll(".registrazioneContainer input");
+    const btnReg = document.querySelector(".regBtn");
+    const returnLogin = document.querySelector(".retBtn");
+    const user = {
+        userName: " ",
+        eMail: " ",
+        pass: " ",
+        agreedInCondition: false
+    };
+    const mailLogInput = document.querySelector(".logMail");
+    const passLogInput = document.querySelector(".logPass");
+    const buttonLog = document.querySelector(".logBtn");
+
+
     
+
+
+
+    loginBtn.addEventListener("click", () =>{
+
+        accedi.classList.toggle("accediContainerShow");
+
+        space.classList.toggle("blankSpaceShow");
+
+        blankMenu.classList.remove("blankSpaceMenuShow");
+
+    });
+
+    loginBtnDesk.addEventListener("click", () =>{
+
+        accedi.classList.toggle("accediContainerShow");
+
+        space.classList.toggle("blankSpaceShow");
+
+        
+
+    })
+
+    space.addEventListener("click", () =>{
+
+        accedi.classList.remove("accediContainerShow");
+
+        space.classList.remove("blankSpaceShow");
+
+        registration.classList.remove("registrazioneContainerShow");
+
+    })
+
+    regBtn.addEventListener("click", () =>{
+
+        accedi.classList.remove("accediContainerShow");
+
+        registration.classList.add("registrazioneContainerShow");
+
+    })
+
+    userNameInput.addEventListener("change", (event) =>{
+        user.userName = event.target.value;
+        const oneLength = userNameInput.getAttribute("data-min");
+        if(user.userName.length >= oneLength ) {
+            userNameInput.classList.add("ok");
+            userNameInput.classList.remove("error");
+            errorMessageUser.classList.remove("userNameErrorShow");
+        } else{
+            userNameInput.classList.add("error");
+            userNameInput.classList.remove("ok");
+            errorMessageUser.classList.add("userNameErrorShow");
+        }
+    });
+
+    mailInput.addEventListener("change", (event) =>{
+        user.eMail = event.target.value;
+        const twoLength = mailInput.getAttribute("data-min");
+        if(user.eMail.length >= twoLength ) {
+            mailInput.classList.add("ok");
+            mailInput.classList.remove("error");
+            errorMessageMail.classList.remove("mailErrorShow");
+        } else{
+            mailInput.classList.add("error");
+            mailInput.classList.remove("ok");
+            errorMessageMail.classList.add("mailErrorShow");
+        }
+    });
+
+    passInput.addEventListener("change", (event) =>{
+        user.pass = event.target.value;
+        const threeLength = passInput.getAttribute("data-min");
+        if(user.pass.length >= threeLength ) {
+            passInput.classList.add("ok");
+            passInput.classList.remove("error");
+            errorMessagePass.classList.remove("passErrorShow");
+        } else{
+            passInput.classList.add("error");
+            passInput.classList.remove("ok");
+            errorMessagePass.classList.add("passErrorShow");
+        }
+    });
+
+    confPassInput.addEventListener("change", (event) =>{
+        if(user.pass === event.target.value){
+            confPassInput.classList.add("ok");
+            confPassInput.classList.remove("error");
+            passInput.classList.remove("error");
+            errorMessage.classList.remove("registrationErrorShow");
+
+        } else{
+            console.log("errore");
+            errorMessage.classList.add("registrationErrorShow");
+            passInput.classList.add("error");
+            confPassInput.classList.add("error");
+        }
+    });
+
+    agreedInCond.addEventListener("change", () =>{
+        user.agreedInCondition = !user.agreedInCondition;
+        for(i=0;i<=3;i++){
+
+            if(inputRegistration[i].classList.contains("ok") && user.agreedInCondition == true){
+                btnReg.disabled = false;
+                btnReg.style.opacity = "1";
+            }
+        }
+    });
+
+    btnReg.addEventListener("click", (event) => {
+        event.preventDefault();
+        space.classList.remove("blankSpaceShow");
+        registration.classList.remove("registrazioneContainerShow");
+        document.querySelector(".welcomeMobile").style.display="none";
+        document.querySelector(".welcomeMobileName").style.display="block";
+        document.querySelector(".welcomeMobileName").innerHTML += `<a href=# class="linkLogName">Benvenuto ${user.userName}<a/>`;
+        // 
+
+        const linkDesktop = document.querySelector(".linkLogDesktop");
+        linkDesktop.remove();
+        document.querySelector(".welcomePlace").innerHTML += "<a href=#>Benvenuto " + user.userName + "<a/>";
+    });
     
-    var oneIndex;
+    returnLogin.addEventListener("click", () =>{
+
+        accedi.classList.add("accediContainerShow");
+
+        registration.classList.remove("registrazioneContainerShow");
+    })
+
+
+
+    mailLogInput.addEventListener("change", (event) => {
+        const lengthOne = mailLogInput.getAttribute("data-min");
+        console.log(event.target.value.length);
+
+        if(event.target.value.length >= lengthOne){
+            mailLogInput.classList.add("ok");
+            mailLogInput.classList.remove("error");
+        } else {
+            mailLogInput.classList.add("error");
+            mailLogInput.classList.remove("ok");
+        }
+    });
+
 
     menuFirstPlate.map((element,index) =>{
         document.querySelector(".plateContainerOne").innerHTML += `
@@ -137,8 +310,6 @@ window.onload=function()
             </div>
         </div>
         `;
-
-        oneIndex= index
     });
 
     menuDess.map((element,index)=>{
@@ -171,13 +342,6 @@ window.onload=function()
         `;
     });
 
-    // emptyCart.addEventListener("click",()=>{
-    //     document.querySelector(".cartContainer").style.display="none";
-    //     totTest =[];
-    //     orderList = [];
-    //     flagList = [];
-    // })
-
     completeOrd.addEventListener("click", ()=>{
         window.location= "file:///Users/cristian.valencia/Desktop/DeliveryFood/index.html"
     });
@@ -190,8 +354,6 @@ function addToCart(index){
     document.querySelector(".cartContainer").style.display = "block";
 
     orderList.push(menuFirstPlate[index].id);
-
-    console.log(menuFirstPlate[index]);
 
       var burgerOneQuantity = orderList.filter(function(element){
         return element === "burgerOne";
@@ -221,6 +383,8 @@ function addToCart(index){
 
             <div>
                 <h2 class="quantityContainer${menuFirstPlate[index].id}"></h2>
+                <button onclick="addOne(${index})">+</button>
+                <button onclick="removeOne(${index})">-</button>
             </div>
         </div>
         `;
@@ -239,8 +403,6 @@ function addToCart(index){
 
     totTest.push(menuFirstPlate[index].price);
 
-    console.log("questo è totTest", totTest);
-
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
     totalPrice = totTest.reduce(reducer);
@@ -249,16 +411,50 @@ function addToCart(index){
 
 };
 
+function removeO(index){
+        orderList.splice(menuFirstPlate[index].id,1);
+
+        totTest.splice(totTest.findIndex(item => item === menuFirstPlate[index].price ), 1);
+    
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    
+        totalPrice = totTest.reduce(reducer);
+    
+        document.querySelector(".totalAmount").innerHTML = `Total Amount: ${totalPrice} euro`;
+    
+        var burgerOneQuantity = orderList.filter(function(element){
+            return element === "burgerOne";
+          });
+    
+          var burgerTwoQuantity = orderList.filter(function(element){
+            return element === "burgerTwo";
+          });
+    
+          var burgerThreeQuantity = orderList.filter(function(element){
+              return element === "burgerThree";
+          });
+    
+          const oneQ = burgerOneQuantity.length;
+    
+          const twoQ = burgerTwoQuantity.length;
+    
+          const threeQ = burgerThreeQuantity.length;
+    
+          if(menuFirstPlate[index].id === "burgerOne"){
+            document.querySelector(`.quantityContainer${menuFirstPlate[index].id}`).innerHTML= `Qt: ${oneQ}`
+        } else if(menuFirstPlate[index].id === "burgerTwo"){
+            document.querySelector(`.quantityContainer${menuFirstPlate[index].id}`).innerHTML= `Qt: ${twoQ}`
+        } else {
+            document.querySelector(`.quantityContainer${menuFirstPlate[index].id}`).innerHTML= `Qt: ${threeQ}`
+        }
+}
+
 function addToCartTwo(index){
 
     
     document.querySelector(".cartContainer").style.display = "block";
 
     orderList.push(menuDess[index].id);
-
-    console.log("questo è orderList: ", orderList);
-
-    console.log(menuDess[index]);
 
       var dessertOneQuantity = orderList.filter(function(element){
         return element === "dessertOne";
@@ -288,31 +484,73 @@ function addToCartTwo(index){
 
             <div>
                 <h2 class="quantityContainer${menuDess[index].id}"></h2>
+                <button onclick="addTwo(${index})">+</button>
+                <button onclick="removeTw(${index})">-</button>
             </div>
         </div>
         `;
-    }
+    };
     
 
-    if(menuDess[index].id === "burgerOne"){
-        document.querySelector(`.quantityContainer${menuDess[index].id}`).innerHTML= `Qt: ${oneD}`
-    } else if(menuFirstPlate[index].id === "burgerTwo"){
-        document.querySelector(`.quantityContainer${menuDess[index].id}`).innerHTML= `Qt: ${twoD}`
+    if(menuDess[index].id === "dessertOne"){
+        document.querySelector(`.quantityContainer${menuDess[index].id}`).innerHTML = `Qt: ${oneD}`
+    } else if(menuDess[index].id === "dessertTwo"){
+        document.querySelector(`.quantityContainer${menuDess[index].id}`).innerHTML = `Qt: ${twoD}`
     } else {
-        document.querySelector(`.quantityContainer${menuDess[index].id}`).innerHTML= `Qt: ${threeD}`
-    }
+        document.querySelector(`.quantityContainer${menuDess[index].id}`).innerHTML = `Qt: ${threeD}`
+    };
 
     flagList.push(menuDess[index].id);
 
     totTest.push(menuDess[index].price);
-
-    console.log("questo è totTest", totTest);
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
     totalPrice = totTest.reduce(reducer);
 
     document.querySelector(".totalAmount").innerHTML = `Total Amount: ${totalPrice} euro`;
+    
+
+
+};
+
+function removeTw(index){
+
+    orderList.splice(menuDess[index].id,1);
+
+    totTest.splice(totTest.findIndex(item => item === menuDess[index].price ), 1);
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    totalPrice = totTest.reduce(reducer);
+
+    document.querySelector(".totalAmount").innerHTML = `Total Amount: ${totalPrice} euro`;
+
+    var dessertOneQuantity = orderList.filter(function(element){
+        return element === "dessertOne";
+      });
+
+      var dessertTwoQuantity = orderList.filter(function(element){
+        return element === "dessertTwo";
+      });
+
+      var dessertThreeQuantity = orderList.filter(function(element){
+          return element === "dessertThree";
+      });
+
+      const oneD = dessertOneQuantity.length;
+
+      const twoD = dessertTwoQuantity.length;
+
+      const threeD = dessertThreeQuantity.length;
+
+      if(menuDess[index].id === "dessertOne"){
+        document.querySelector(`.quantityContainer${menuDess[index].id}`).innerHTML= `Qt: ${oneD}`
+    } else if(menuDess[index].id === "dessertTwo"){
+        document.querySelector(`.quantityContainer${menuDess[index].id}`).innerHTML= `Qt: ${twoD}`
+    } else {
+        document.querySelector(`.quantityContainer${menuFimenuDessrstPlate[index].id}`).innerHTML= `Qt: ${threeD}`
+    }
 
 };
 
@@ -323,9 +561,6 @@ function addToCartThree(index){
 
     orderList.push(menuDrink[index].id);
 
-    console.log("questo è orderList: ", orderList);
-
-    console.log(menuDrink[index]);
 
       var drinkOneQuantity = orderList.filter(function(element){
         return element === "drinkOne";
@@ -339,11 +574,11 @@ function addToCartThree(index){
           return element === "drinkThree";
       });
 
-      const oneD = drinkOneQuantity.length;
+      const oneDr = drinkOneQuantity.length;
 
-      const twoD = drinkTwoQuantity.length;
+      const twoDr = drinkTwoQuantity.length;
 
-      const threeD = drinkThreeQuantity.length;
+      const threeDr = drinkThreeQuantity.length;
 
     if(!flagList.includes(menuDrink[index].id)){
         document.querySelector(".orderListContainer").innerHTML += `
@@ -355,25 +590,25 @@ function addToCartThree(index){
 
             <div>
                 <h2 class="quantityContainer${menuDrink[index].id}"></h2>
+                <button onclick="addThr(${index})">+</button>
+                <button onclick="removeThr(${index})">-</button>
             </div>
         </div>
         `;
     }
     
 
-    if(menuDrink[index].id === "burgerOne"){
-        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${oneD}`
-    } else if(menuFirstPlate[index].id === "burgerTwo"){
-        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${twoD}`
+    if(menuDrink[index].id === "drinkOne"){
+        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${oneDr}`
+    } else if(menuDrink[index].id === "drinkTwo"){
+        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${twoDr}`
     } else {
-        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${threeD}`
+        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${threeDr}`
     }
 
     flagList.push(menuDrink[index].id);
 
     totTest.push(menuDrink[index].price);
-
-    console.log("questo è totTest", totTest);
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
@@ -382,3 +617,67 @@ function addToCartThree(index){
     document.querySelector(".totalAmount").innerHTML = `Total Amount: ${totalPrice} euro`;
 
 };
+
+function removeTh(index){
+
+    orderList.splice(menuDrink[index].id,1);
+
+    totTest.splice(totTest.findIndex(item => item === menuDrink[index].price ), 1);
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    totalPrice = totTest.reduce(reducer);
+
+    document.querySelector(".totalAmount").innerHTML = `Total Amount: ${totalPrice} euro`;
+
+    var drinkOneQuantity = orderList.filter(function(element){
+        return element === "drinkOne";
+      });
+
+      var drinkTwoQuantity = orderList.filter(function(element){
+        return element === "drinkTwo";
+      });
+
+      var drinkThreeQuantity = orderList.filter(function(element){
+          return element === "drinkThree";
+      });
+
+      const oneDr = drinkOneQuantity.length;
+
+      const twoDr = drinkTwoQuantity.length;
+
+      const threeDr = drinkThreeQuantity.length;
+
+      if(menuDrink[index].id === "drinkOne"){
+        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${oneDr}`
+    } else if(menuDrink[index].id === "drinkTwo"){
+        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${twoDr}`
+    } else {
+        document.querySelector(`.quantityContainer${menuDrink[index].id}`).innerHTML= `Qt: ${threeDr}`
+    }
+
+}
+
+const addOne = (index) =>{
+    addToCart(index);
+};
+
+const removeOne = (index) =>{
+    removeO(index);
+};
+
+const addTwo = (index =>{
+    addToCartTwo(index)
+});
+
+const removeTo = (index) =>{
+    removeTw(index);
+}
+
+const addThr = (index) =>{
+    addToCartThree(index);
+};
+
+const removeThr =(index) =>{
+    removeTh(index);
+}

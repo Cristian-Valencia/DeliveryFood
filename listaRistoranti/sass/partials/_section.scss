@@ -31,6 +31,11 @@ section{
                 margin: 1em auto;
                 width: 90%;
                 padding: 1em;
+                position: relative;
+                cursor: pointer;
+                clip-path: none;
+
+                
 
                 &:last-child{
                     margin-bottom: 3em;
@@ -41,6 +46,14 @@ section{
                     width: 40%;
                     display: flex;
                     flex-wrap: wrap;
+                   
+                    &:hover img{
+                        transform: scale(2);
+                    }
+
+                    & .imageContainer:hover{
+                        clip-path: polygon(0 0, 298% 0%, 97% 79%, -70% 106%);
+                    }
                 }
 
                 & h2{
@@ -52,23 +65,123 @@ section{
                     }
                 }
 
-                & img{
+                & .imageContainer{
+
+                    box-shadow: none;
                     width: 100%;
-                    height: auto;
-                    clip-path: polygon(0 0, 100% 0%, 100% 87%, 0% 100%);
+                    margin: 0;
+                    padding: 0%;
+                    clip-path: polygon(0 0, 298% 0%, 97% 79%, -70% 106%);
+                    
+                    & img{
+                        width: 100%;
+                        height: auto;
+                        transition: transform .5s, clip-path 0s;
+                    }
+
+                    @include desktop{
+                        box-shadow:none;
+                        width: 100%;
+                        margin: 0%;
+                        overflow: hidden;
+                        clip-path: polygon(0 0, 298% 0%, 97% 79%, -70% 106%);
+                    }
                 }
+
+                
 
                 & p{
                     font-size: 1em;
-                    margin-top: .5em;
+                    margin-top: 1.5em;
+                    margin-left: 2em;
                     color: rgb(131, 131, 131);
 
+                    &:first-of-type::before{
+                        content: " ";
+                        background-size: contain;
+                        width: 28px;
+                        height: 50px;
+                        position: absolute;
+                        top: 55%;
+                        right: 88%;
+                        background: url(../images/type.svg) no-repeat;
+
+                        @include desktop{
+                            top: 74%;
+                            right: 93%;
+                        }
+                    }
+
+                    &:nth-of-type(2)::before{
+                        content: " ";
+                        background-size: contain;
+                        width: 28px;
+                        height: 50px;
+                        position: absolute;
+                        top: 64%;
+                        right: 88%;
+                        background: url(../images/orderMin.svg) no-repeat;
+
+                        @include desktop{
+                            top: 75%;
+                            right: 46%;
+                        }
+                    }
+
+                    &:nth-of-type(3)::before{
+                        content: " ";
+                        background-size: contain;
+                        width: 28px;
+                        height: 50px;
+                        position: absolute;
+                        top: 73%;
+                        right: 88%;
+                        background: url(../images/cost.svg) no-repeat;
+
+                        @include desktop{
+                            top: 82%;
+                            right: 93%;
+                        }
+                    }
+
+                    &:nth-of-type(4)::before{
+                        content: " ";
+                        background-size: contain;
+                        width: 28px;
+                        height: 50px;
+                        position: absolute;
+                        top: 82%;
+                        right: 88%;
+                        background: url(../images/time.svg) no-repeat;
+
+                        @include desktop{
+                            top: 83%;
+                            right: 47%;
+                        }
+                    }
+
+                    &:last-of-type::before{
+                        content: " ";
+                        background-size: contain;
+                        width: 28px;
+                        height: 50px;
+                        position: absolute;
+                        top: 91%;
+                        right: 88%;
+                        background: url(../images/distance.svg) no-repeat;
+
+                        @include desktop{
+                            top: 91%;
+                            right: 93%;
+                        }
+                    }
+
                     @include desktop{
-                        width: 50%;
+                        width: 44%;
                     }
                 }
             }
         }
 
-    }
+}
 

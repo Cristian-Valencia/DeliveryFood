@@ -243,22 +243,6 @@ window.onload=function()
 
     })
 
-    // vogliamo che quando qualcuno si registra i parametri vengono salvati dentro un oggetto!
-
-    // let savedMail ="";
-
-    // mail.addEventListener("change", (event) =>{
-
-    //     savedMail = event.target.value;
-
-    //     console.log(savedMail);
-
-    //     document.querySelector(".test").innerHTML = savedMail;
-
-    // });
-
-    
-
     userNameInput.addEventListener("change", (event) =>{
         user.userName = event.target.value;
         const oneLength = userNameInput.getAttribute("data-min");

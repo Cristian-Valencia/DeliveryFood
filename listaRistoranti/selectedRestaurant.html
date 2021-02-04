@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/selectedRestaurant.css">
     <script src="javascripts/selectedRestaurant.js"></script>
+    <script src="javascripts/registration.js"></script>
+    <link rel="shortcut icon" href="images/logo-bianco.png" />
     <title>LABFORFOOD - Jollibee</title>
 
 </head>
@@ -57,6 +61,87 @@
 
     <div class="blankSpaceMenu"></div>
 
+    <!-- Accedi/Registrazione -->
+
+    <div class="accediContainer">
+        <form method="POST" class="accedi">
+
+            <h2>Accedi</h2>
+
+            <ul>
+                <li>
+                    <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" data-min="15" autocomplete="off" class="logMail">
+                </li>
+                <li>
+                    <input type="password" name="password" placeholder="Password" maxlength="20" data-min="10" autocomplete="off" class="logPass"> 
+                    <br>
+                    <a href="#">Hai dimenticato la password?</a>
+                </li>
+                <li>
+                    <button class="logBtn">Accedi</button>
+                </li>
+
+                <li>
+                    <h3>Prima volta sul nostro sito? <a href="#" class="registrationLink">Crea un account</a></h3>
+                </li>
+
+                <li>
+                    <h3>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla <a href="#">Privacy</a>e sui <a href="#">Cookie</a>.</h3>
+                </li>
+                
+            </ul>
+        </form>
+
+    </div>
+
+    <div class="registrazioneContainer">
+        <form class="registrazione">
+            <ul>
+
+                <li>
+                    <h2>Registrazione</h2>
+                </li>
+
+                <li>
+                    <input type="username" name="user" placeholder="Inserire Username" maxlength="90" data-min="3" class="userName" autocomplete="off">
+                    <p class="userNameError">Questo campo deve contenere almeno 3 caratteri.</p>
+                </li>
+
+                <li>
+                    <input type="email" name="mail" placeholder="Inserire e-mail" maxlength="90" data-min="15" class="email" autocomplete="off">
+                    <p class="mailError">Questo campo deve contenere almeno 15 caratteri.</p>
+                </li>
+
+                <li>
+                    <input type="password" name="password" placeholder="Password" maxlength="20"  data-min="10" class="password" autocomplete="off"> 
+                    <p class="passError">Questo campo deve contenere almeno 10 caratteri.</p>
+                </li>
+
+                <li>
+                    <input type="password" name="confirmPassword" placeholder="Conferma Password" maxlength="20"  data-min="10" class="confirmPassword"> 
+                    <p class="registrationError">Le due password non corrispondono</p>
+                </li>
+
+                <li>
+                    <input type="checkbox" class="agreedCheck">
+                    <label>Creando un account accetti <a href="#">Termini e le condizioni d'uso</a>. Leggi la nostra informativa sulla <a href="#">Privacy </a>e sui <a href="#">Cookie</a>.</label>
+                </li>
+
+                <li> 
+                    <button class="regBtn" disabled >Registrati</button>
+                </li>
+
+                <li>
+                    <h3>Sei già registrato? <a href="#" class="retBtn">Accedi</a></h3>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+
+
+    <div class="blankSpace"></div>
+
     <section>
 
         <div class="headContainer">
@@ -79,6 +164,8 @@
             <h2 class="drinks">Drinks</h2>
             <div class="plateContainerThree"></div>
         </div>
+
+    <!-- Accedi/Registrazione -->
 
 
 

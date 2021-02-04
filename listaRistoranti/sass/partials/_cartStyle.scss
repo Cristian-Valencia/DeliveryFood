@@ -47,11 +47,17 @@
                 width: 30%;
                 margin-top: 0;
                 padding: 1em;
+                text-align: center;
 
                 & h2{
                     @include desktop{
                         font-size: 1.5em;
                     }
+                }
+
+                & button{
+                    border:none;
+                    margin-top: .5em;
                 }
             }
         }
