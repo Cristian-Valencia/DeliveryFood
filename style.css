@@ -54,6 +54,10 @@
     display: inline-block;
 }
 
+@media screen and (min-width:1028px){
+    .logoContainer{margin-left: 2em;}
+}
+
 .logo{
     background-image: url(img/logo-bianco.png);
     background-size: contain;
@@ -113,6 +117,7 @@
     .listContainerDesktop li a{
         color: white;
         transition: border-bottom 0.7s, opacity 0.7s;
+        font-size: .8em;
     }
 
     .listContainerDesktop li a:hover{
@@ -196,8 +201,27 @@
     right: -19%;
 }
 
-.dropDownLink{
+.logOutLink{
     display: none;
+}
+
+.logOutLink::after{
+    content: "";
+    background-size: contain;
+    width: 28px;
+    height: 50px;
+    position: absolute;
+    top: 70%;
+    right: 4%;
+    background: url(img/logout.svg) no-repeat;
+}
+
+.logOutLinkDesktop{
+    display:none;
+    position: absolute;
+    top: 7%;
+    right: 1%;
+    font-size: .5em;
 }
 
 .blankSpaceMenu{
@@ -238,6 +262,7 @@
         top: 71%;
         left: 34%;
         width: 56%;
+        padding: 2em;
     }
   }
 
@@ -805,12 +830,25 @@
 
 .appContainer{
     width: 100%;
-    margin: 100px 0;
+    margin: 65px 0 100px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     position: relative;
     overflow: hidden;
+}
+
+@media screen and (min-width:1028px){
+    .appContainer{
+        width: 70%;
+        margin: 100px 15%;
+    }
+}
+
+.appContainer h2{
+    font-size: 35px;
+    padding-left: 10px;
+    padding-bottom: 30px;
 }
 
 .mobileApp{
@@ -849,7 +887,8 @@
 @media screen and (min-width: 1028px) {
     .appStore img{
         width: 50%;
-        height: 40%;
+        height: 60%;
+        cursor: pointer;   
     }
   }
 
@@ -1026,6 +1065,14 @@
 .paymentsContainer img{
     width: 100%;
 }
+
+@media screen and (min-width: 1028px){
+    .paymentsContainer img{
+        margin: 0 25%;
+        width: 50%;
+    }
+}
+
 
 
 /* stop scrolling class */

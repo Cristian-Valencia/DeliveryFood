@@ -6,8 +6,6 @@ $breakPoint:1028px;
     }
 };
 
-
-
 *{
     font-family: 'Darker Grotesque', sans-serif;
     box-sizing: border-box;
@@ -193,6 +191,8 @@ $breakPoint:1028px;
         & li a{
             color: white;
             transition: border-bottom 0.7s, opacity 0.7s;
+            font-size: .8em;
+            font-weight: 400;
     
             &:hover{
                 border-bottom: solid white 1px;

@@ -9,7 +9,7 @@ window.onload=function()
     geolocate();
 
     const burgerMenuBtn = document.querySelector(".burgerMenuContainer");
-    const blankMenu = document.querySelector(".blankSpaceMenu")
+    const blankMenu = document.querySelector(".blankSpaceMenu");
     const lContainer = document.querySelector(".listContainer");
 
     burgerMenuBtn.addEventListener("click", ()=>{
@@ -197,6 +197,8 @@ window.onload=function()
     const savedAddress = address;
     const testAddress = document.querySelector(".testAddress");
     const confirmAddress = document.querySelector("#conferma");
+    const logOut = document.querySelector(".linkLogOut");
+    const logOutDesk = document.querySelector(".logOutLinkDesktop");
 
 
     console.log("questo è addressTest fuori: ", addressTest)
@@ -211,7 +213,7 @@ window.onload=function()
 
         space.classList.toggle("blankSpaceShow");
 
-        blankMenu.classList.remove("blankSpaceMenuShow");
+        blankMenu.style.display ="none";
 
     });
 
@@ -318,11 +320,12 @@ window.onload=function()
         document.querySelector(".welcomeMobile").style.display="none";
         document.querySelector(".welcomeMobileName").style.display="block";
         document.querySelector(".welcomeMobileName").innerHTML += `<a href=# class="linkLogName">Benvenuto ${user.userName}<a/>`;
+        document.querySelector(".logOutLink").style.display="block";
         // 
-
         const linkDesktop = document.querySelector(".linkLogDesktop");
         linkDesktop.remove();
-        document.querySelector(".welcomePlace").innerHTML += "<a href=#>Benvenuto " + user.userName + "<a/>";
+        document.querySelector(".welcomePlace").innerHTML += `<a href=# class="linkDes">Benvenuto ${user.userName}<a/>`;
+        document.querySelector(".logOutLinkDesktop").style.display="block";
     });
     
     returnLogin.addEventListener("click", () =>{
@@ -331,6 +334,26 @@ window.onload=function()
 
         registration.classList.remove("registrazioneContainerShow");
     })
+
+
+    if(logOut){
+        logOut.addEventListener("click",()=>{
+            document.querySelector(".welcomeMobileName").remove("linkLogName");
+            document.querySelector(".welcomeMobile").style.display="block";
+            document.querySelector(".logOutLink").remove("linkLogOut");
+
+            
+        });
+    }
+
+    if(logOutDesk){
+        logOutDesk.addEventListener("click", ()=>{
+            document.querySelector(".linkDes").remove();
+            document.querySelector(".welcomePlace").innerHTML += `<a href="#" class="linkLogDesktop">Login/Registrazione</a>`;
+            document.querySelector(".logOutDesktop").remove("logOutLinkDesktop");
+        })
+    }
+    
 
 
 

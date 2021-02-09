@@ -49,15 +49,26 @@
                 padding: 1em;
                 text-align: center;
 
+                @include desktop{
+                    display: flex;
+                }
+
                 & h2{
                     @include desktop{
                         font-size: 1.5em;
+                        margin-top: .7em;
                     }
                 }
 
                 & button{
                     border:none;
                     margin-top: .5em;
+
+                    @include desktop{
+                        margin: 0 0 0 1em;
+                        font-size: 2em;
+                        width: 1em;
+                    }
                 }
             }
         }

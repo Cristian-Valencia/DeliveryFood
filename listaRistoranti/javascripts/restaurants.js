@@ -1,4 +1,4 @@
-var test = localStorage.getItem("addressFrom");
+var addressFrom = localStorage.getItem("addressFrom");
 
 
 
@@ -9,7 +9,11 @@ window.onload=function()
     const blankMenu = document.querySelector(".blankSpaceMenu");
     const lContainer = document.querySelector(".listContainer");
     const localAddress = document.querySelector(".geoPosition");
-    var objectSelected;
+    // var objectSelected;
+
+    
+
+    localAddress.innerHTML = `${addressFrom}`;
 
 
     const restaurantsArr = [
@@ -97,42 +101,11 @@ window.onload=function()
 
 
     });
-
-
-
     
     const loginBtn = document.querySelector(".linkLog");
     const loginBtnDesk = document.querySelector(".linkLogDesktop");
     const space = document.querySelector(".blankSpace");
     const accedi = document.querySelector(".accediContainer");
-    const regBtn = document.querySelector(".registrationLink");
-    const registration = document.querySelector(".registrazioneContainer");
-    const mailInput = document.querySelector(".email");
-    const userNameInput = document.querySelector(".userName");
-    const passInput = document.querySelector(".password");
-    const confPassInput = document.querySelector(".confirmPassword");
-    const errorMessage = document.querySelector(".registrationError");
-    const errorMessageUser = document.querySelector(".userNameError");
-    const errorMessageMail = document.querySelector(".mailError");
-    const errorMessagePass = document.querySelector(".passError");
-    const agreedInCond = document.querySelector(".agreedCheck");
-    const inputRegistration = document.querySelectorAll(".registrazioneContainer input");
-    const btnReg = document.querySelector(".regBtn");
-    const returnLogin = document.querySelector(".retBtn");
-    const user = {
-        userName: " ",
-        eMail: " ",
-        pass: " ",
-        agreedInCondition: false
-    };
-    const mailLogInput = document.querySelector(".logMail");
-    const passLogInput = document.querySelector(".logPass");
-    const buttonLog = document.querySelector(".logBtn");
-
-
-    
-
-
 
     loginBtn.addEventListener("click", () =>{
 
@@ -154,137 +127,13 @@ window.onload=function()
 
     })
 
-    space.addEventListener("click", () =>{
-
-        accedi.classList.remove("accediContainerShow");
-
-        space.classList.remove("blankSpaceShow");
-
-        registration.classList.remove("registrazioneContainerShow");
-
-    })
-
-    regBtn.addEventListener("click", () =>{
-
-        accedi.classList.remove("accediContainerShow");
-
-        registration.classList.add("registrazioneContainerShow");
-
-    })
-
-    userNameInput.addEventListener("change", (event) =>{
-        user.userName = event.target.value;
-        const oneLength = userNameInput.getAttribute("data-min");
-        if(user.userName.length >= oneLength ) {
-            userNameInput.classList.add("ok");
-            userNameInput.classList.remove("error");
-            errorMessageUser.classList.remove("userNameErrorShow");
-        } else{
-            userNameInput.classList.add("error");
-            userNameInput.classList.remove("ok");
-            errorMessageUser.classList.add("userNameErrorShow");
-        }
-    });
-
-    mailInput.addEventListener("change", (event) =>{
-        user.eMail = event.target.value;
-        const twoLength = mailInput.getAttribute("data-min");
-        if(user.eMail.length >= twoLength ) {
-            mailInput.classList.add("ok");
-            mailInput.classList.remove("error");
-            errorMessageMail.classList.remove("mailErrorShow");
-        } else{
-            mailInput.classList.add("error");
-            mailInput.classList.remove("ok");
-            errorMessageMail.classList.add("mailErrorShow");
-        }
-    });
-
-    passInput.addEventListener("change", (event) =>{
-        user.pass = event.target.value;
-        const threeLength = passInput.getAttribute("data-min");
-        if(user.pass.length >= threeLength ) {
-            passInput.classList.add("ok");
-            passInput.classList.remove("error");
-            errorMessagePass.classList.remove("passErrorShow");
-        } else{
-            passInput.classList.add("error");
-            passInput.classList.remove("ok");
-            errorMessagePass.classList.add("passErrorShow");
-        }
-    });
-
-    confPassInput.addEventListener("change", (event) =>{
-        if(user.pass === event.target.value){
-            confPassInput.classList.add("ok");
-            confPassInput.classList.remove("error");
-            passInput.classList.remove("error");
-            errorMessage.classList.remove("registrationErrorShow");
-
-        } else{
-            console.log("errore");
-            errorMessage.classList.add("registrationErrorShow");
-            passInput.classList.add("error");
-            confPassInput.classList.add("error");
-        }
-    });
-
-    agreedInCond.addEventListener("change", () =>{
-        user.agreedInCondition = !user.agreedInCondition;
-        for(i=0;i<=3;i++){
-
-            if(inputRegistration[i].classList.contains("ok") && user.agreedInCondition == true){
-                btnReg.disabled = false;
-                btnReg.style.opacity = "1";
-            }
-        }
-    });
-
-    btnReg.addEventListener("click", (event) => {
-        event.preventDefault();
-        space.classList.remove("blankSpaceShow");
-        registration.classList.remove("registrazioneContainerShow");
-        document.querySelector(".welcomeMobile").style.display="none";
-        document.querySelector(".welcomeMobileName").style.display="block";
-        document.querySelector(".welcomeMobileName").innerHTML += `<a href=# class="linkLogName">Benvenuto ${user.userName}<a/>`;
-        // 
-
-        const linkDesktop = document.querySelector(".linkLogDesktop");
-        linkDesktop.remove();
-        document.querySelector(".welcomePlace").innerHTML += "<a href=#>Benvenuto " + user.userName + "<a/>";
-    });
-    
-    returnLogin.addEventListener("click", () =>{
-
-        accedi.classList.add("accediContainerShow");
-
-        registration.classList.remove("registrazioneContainerShow");
-    })
-
-
-
-    mailLogInput.addEventListener("change", (event) => {
-        const lengthOne = mailLogInput.getAttribute("data-min");
-        console.log(event.target.value.length);
-
-        if(event.target.value.length >= lengthOne){
-            mailLogInput.classList.add("ok");
-            mailLogInput.classList.remove("error");
-        } else {
-            mailLogInput.classList.add("error");
-            mailLogInput.classList.remove("ok");
-        }
-    });
 
     restaurantsArr.map((element, index) =>{
         console.log("questo è name: ", element.name);
-        // var p = document.createElement("p");
 
         console.log("questo è index: ", index);
 
         objectSelected = index;
-
-        // document.querySelector(".restaurantsContainer").append(element.name, p);
 
         document.querySelector(".restaurantsContainer").innerHTML += `
         <div onclick="goToSelectedRestaurant()">
